@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/eindproject-react-annemiek-nieboer.iml" filepath="$PROJECT_DIR$/.idea/eindproject-react-annemiek-nieboer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../React les 5 - conceptopdracht/frontend-react-conceptopdracht/.idea/frontend-react-conceptopdracht.iml" filepath="$PROJECT_DIR$/../React les 5 - conceptopdracht/frontend-react-conceptopdracht/.idea/frontend-react-conceptopdracht.iml" />
     </modules>
   </component>
 </project>
