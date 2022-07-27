@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../React les 5 - conceptopdracht/frontend-react-conceptopdracht" vcs="Git" />
   </component>
 </project>
