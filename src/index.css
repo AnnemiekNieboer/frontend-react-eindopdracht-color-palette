@@ -1,13 +1,49 @@
-body {
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* --------------- 1.2 Colors ------------------- */
+
+:root {
+  --main-focus-color: #B7AD89;
+  --main-contrast-color: #3C4C76;
+  --main-background-color-light: #F5F5F5;
+  --main-background-color-dark: #393735;
+  --main-font-color-light: #F5F5F5;
+  --main-font-color-dark: #393735;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Lora', serif;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+/*outer container, buttons etc*/
+
+.outer-container__reusable {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.inner-container__reusable {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 20px;
+  flex-basis: 100%;
 }
