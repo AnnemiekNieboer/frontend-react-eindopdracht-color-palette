@@ -1,7 +1,20 @@
 .header {
+    width: 100vw;
     height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    object-fit: cover;
+}
+
+.header__text-section {
+    margin-top: 36vh;
+}
+
+.header-text-section__title {
+    line-height: 1.5em;
+}
+
+.header-text-section__intro {
+    color: var(--main-font-color-light);
+    font-weight: 500;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin: 1em 0;
 }

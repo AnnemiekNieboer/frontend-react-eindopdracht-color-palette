@@ -1,6 +1,7 @@
 import React from "react";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
+import Button from "../../components/button/Button";
 
 function Homepage() {
     return (
@@ -10,7 +11,9 @@ function Homepage() {
                 header="Learn from the masters, and become one"
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
-                <button>search now -></button>
+                <Button
+                text="search now ->"
+                />
             </Header>
         </>
     );

@@ -12,7 +12,10 @@
     height: 50vh;
     width: 50vw;
     position: absolute;
+    top: 1em;
+    left: 1em;
     z-index: 1;
+    box-shadow: var(--main-shadow-color) 0px 3px 8px;
     transition: opacity 0.3s linear;
 }
 

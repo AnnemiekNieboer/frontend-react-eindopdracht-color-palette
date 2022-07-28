@@ -7,9 +7,12 @@ function Header({className, header, text, children}) {
         <div className="outer-container__reusable header">
             <div className={className}>
                 <Navigation/>
-                <h1>{header}</h1>
-                <p>{text}</p>
-                {children}
+                <section className="header__text-section inner-container__reusable">
+                    <h1 className="header-text-section__title">{header}</h1>
+                    <p className="header-text-section__intro">{text}</p>
+                    {children}
+                </section>
+
             </div>
         </div>
     );

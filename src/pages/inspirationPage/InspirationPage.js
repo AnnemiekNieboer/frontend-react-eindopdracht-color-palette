@@ -6,6 +6,7 @@ function InspirationPage() {
     return (
         <>
          <Header
+             className="inner-container__reusable header-background-image__inspiration"
              header="Artist of light: Johannes Vermeer"
              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
          />

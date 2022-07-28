@@ -17,6 +17,8 @@
   --main-background-color-dark: #393735;
   --main-font-color-light: #F5F5F5;
   --main-font-color-dark: #393735;
+  --main-shadow-color: #0000003D;
+  --main-shadow-color-dark: #00000066;
 }
 
 /* ------------------------------- 2. Typography ----------------------------------- */
@@ -27,6 +29,13 @@ body {
 
 h1, h2, h3, h4 {
   font-family: 'Lora', serif;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--main-font-color-light);
+  margin: 0.5em 0;
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
