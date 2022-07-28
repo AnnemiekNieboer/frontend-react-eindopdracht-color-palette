@@ -5,7 +5,9 @@
     letter-spacing: 0.08em;
     background-color: var(--main-focus-color);
     color: var(--main-font-color-light);
-    width: 140px;
+    min-width: 130px;
+    text-align: left;
+    padding-left: 1em;
     height: 40px;
     border: none;
     border-radius: 5px;

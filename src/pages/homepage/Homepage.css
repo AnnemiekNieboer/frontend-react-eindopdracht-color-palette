@@ -5,3 +5,37 @@
     background-repeat: no-repeat;
     resize: horizontal;
 }
+
+main {
+    color: var(--main-font-color-light);
+    background-color: var(--main-background-color-dark);
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1.5em 0;
+    border: none;
+}
+
+.input-field__reuseable {
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    padding-left: 10px;
+}
+
+.search-query__input-field {
+    width: 100%;
+
+    background-image: url("../../assets/icons/search.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+select {
+    width: 70%;
+}

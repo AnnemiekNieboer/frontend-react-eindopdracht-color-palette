@@ -1,10 +1,10 @@
 import React from "react";
 import "./Button.css"
 
-function Button({text}) {
+function Button({text, type}) {
     return (
-        <button className="button__reuseable">
-            {text}
+        <button type={type} className="button__reuseable">
+            {text} ->
         </button>
     );
 }

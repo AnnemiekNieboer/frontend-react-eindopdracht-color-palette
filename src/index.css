@@ -32,10 +32,21 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: 600;
   color: var(--main-font-color-light);
   margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin: 0.7em 0;
+}
+
+h5, label {
+  font-size: 0.8em;
+  font-weight: 300;
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
@@ -53,6 +64,6 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px 20px;
+  padding: 22px 22px;
   flex-basis: 100%;
 }
