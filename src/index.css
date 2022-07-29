@@ -41,7 +41,7 @@ h1 {
 
 h2 {
   font-size: 1.4em;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0.7em 0;
 }
 
@@ -50,8 +50,13 @@ h5, label {
   font-weight: 300;
 }
 
+::placeholder {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
 /* ------------------------------- 3. Layout --------------------------------------- */
-/*outer container, buttons etc*/
 
 .outer-container__reusable {
   display: flex;
@@ -67,4 +72,13 @@ h5, label {
   justify-content: flex-start;
   padding: 22px 22px;
   flex-basis: 100%;
+}
+
+.input-field__reuseable {
+  height: 35px;
+  border: 1px solid var(--main-background-color-dark);
+  background-color: var(--main-background-color-light);
+  border-radius: 10px;
+  margin-top: 0.5em;
+  padding-left: 10px;
 }

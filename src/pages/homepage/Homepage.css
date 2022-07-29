@@ -25,17 +25,8 @@ fieldset {
     border: none;
 }
 
-.input-field__reuseable {
-    height: 30px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 0.5em;
-    padding-left: 10px;
-}
-
 .search-query__input-field {
     width: 100%;
-
     background-image: url("../../assets/icons/search.png");
     background-position: right;
     background-repeat: no-repeat;

@@ -9,6 +9,7 @@
     justify-content: center;
     gap: 1em;
     background-color: var(--main-background-color-dark);
+    border-radius: 10px;
     height: 45vh;
     width: 50vw;
     position: absolute;

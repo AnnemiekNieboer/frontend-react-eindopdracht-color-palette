@@ -10,9 +10,10 @@ function Footer() {
         <footer className="outer-container__reusable">
             <div className="inner-container__reusable footer-container">
                 <div className="footer__link-section">
-                    <div>
+                    <div className="footer__about-section">
                         <h3 className="footer__heading">About</h3>
                         <Link className="footer__link" to="/">About Color Palette</Link>
+                        <Link className="footer__link" to="/">Our partners</Link>
                     </div>
                     <div className="footer__social-section">
                         <h3 className="footer__heading">Social</h3>

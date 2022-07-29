@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/eindproject-react-annemiek-nieboer.iml" filepath="$PROJECT_DIR$/.idea/eindproject-react-annemiek-nieboer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../React Les 2/lesopdracht-react-fruitbasket-order-form/.idea/lesopdracht-react-fruitbasket-order-form.iml" filepath="$PROJECT_DIR$/../React Les 2/lesopdracht-react-fruitbasket-order-form/.idea/lesopdracht-react-fruitbasket-order-form.iml" />
     </modules>
   </component>
 </project>

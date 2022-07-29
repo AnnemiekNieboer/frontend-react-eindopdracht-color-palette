@@ -3,7 +3,6 @@ import "./Homepage.css";
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 import PaintingTile from "../../components/paintingTile/PaintingTile";
-import Footer from "../../components/footer/Footer";
 
 function Homepage() {
 
@@ -21,12 +20,13 @@ function Homepage() {
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
                 <Button
+                    onClick="#search-query__section"
                     text="search now"
                     type="button"
                 />
             </Header>
             <main className="inner-container__reusable">
-                <section className="search-query__section">
+                <section className="search-query__section" id="search-query__section">
                     <h2>Search for Color Inspiration</h2>
                     <form>
                         <fieldset aria-label="Search for color inspiration by artist/painting">
