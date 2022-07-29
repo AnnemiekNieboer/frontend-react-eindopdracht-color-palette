@@ -54,6 +54,7 @@ h5, label {
   font-family: 'Quicksand', sans-serif;
   font-size: 0.9em;
   font-weight: 500;
+  color: var(--main-font-color-dark);
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
@@ -74,11 +75,15 @@ h5, label {
   flex-basis: 100%;
 }
 
-.input-field__reuseable {
+.input-field__reusable {
   height: 35px;
   border: 1px solid var(--main-background-color-dark);
   background-color: var(--main-background-color-light);
   border-radius: 10px;
   margin-top: 0.5em;
   padding-left: 10px;
+}
+
+main {
+  background-color: var(--main-background-color-dark);
 }

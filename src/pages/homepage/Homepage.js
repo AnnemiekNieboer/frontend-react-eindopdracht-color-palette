@@ -33,7 +33,7 @@ function Homepage() {
                             <label htmlFor="search-query-artist-painting">
                                 Search by artist/painting
                             </label>
-                            <input className="search-query__input-field input-field__reuseable" type="text"
+                            <input className="search-query__input-field input-field__reusable" type="text"
                                    id="search-query-artist-painting" name="search-query-artist-painting"
                                    placeholder="artist/painting"/>
                         </fieldset>
@@ -82,7 +82,7 @@ function Homepage() {
                         <fieldset>
                             <label htmlFor="search-by-catalogue-title">
                                 Search by catalogue title
-                                <select className="input-field__reuseable" id="search-by-catalogue-title">
+                                <select className="input-field__reusable" id="search-by-catalogue-title">
                                     <option value="test1">test</option>
                                     <option value="test2">test</option>
                                     <option value="test3">test</option>

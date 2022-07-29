@@ -13,7 +13,7 @@ function Authorization({header, children, underlineTextPart1, underlineLink, und
                 <label className="authorization__label" htmlFor="username">
                     Username
                     <input
-                        className="input-field__reuseable authorization__input-field"
+                        className="input-field__reusable authorization__input-field"
                         type="text"
                         id="username"
                         placeholder="Enter your username"
@@ -22,7 +22,7 @@ function Authorization({header, children, underlineTextPart1, underlineLink, und
                 <label className="authorization__label" htmlFor="password">
                     Password
                     <input
-                        className="input-field__reuseable authorization__input-field"
+                        className="input-field__reusable authorization__input-field"
                         type="text"
                         id="password"
                         placeholder="Enter your password"
