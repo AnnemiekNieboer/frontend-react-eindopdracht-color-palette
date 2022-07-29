@@ -3,6 +3,7 @@ import "./Homepage.css";
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 import PaintingTile from "../../components/paintingTile/PaintingTile";
+import Footer from "../../components/footer/Footer";
 
 function Homepage() {
 
@@ -101,9 +102,7 @@ function Homepage() {
                     <PaintingTile/>
                     <PaintingTile/>
                     <PaintingTile/>
-
                 </section>
-
             </main>
         </>
     );
