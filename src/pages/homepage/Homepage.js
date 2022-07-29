@@ -13,7 +13,7 @@ function Homepage() {
     //Als checked is true, dan false, als checked is false, dan checked is true
 
     return (
-        <>
+        <div className="outer-container__reusable">
             <Header
                 className="header-background-image__homepage inner-container__reusable"
                 header="Learn from the masters, and become one"
@@ -104,7 +104,7 @@ function Homepage() {
                     <PaintingTile/>
                 </section>
             </main>
-        </>
+        </div>
     );
 }
 

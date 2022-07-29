@@ -8,7 +8,7 @@ import Button from "../../components/button/Button";
 
 function InspirationPage() {
     return (
-        <>
+        <div className="outer-container__reusable">
             <Header
                 className="inner-container__reusable header-background-image__inspiration"
                 header="Artist of light: Johannes Vermeer"
@@ -42,7 +42,7 @@ function InspirationPage() {
                 </TextBlock>
 
             </main>
-        </>
+        </div>
     );
 }
 
