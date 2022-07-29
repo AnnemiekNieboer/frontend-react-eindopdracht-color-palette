@@ -11,11 +11,11 @@ function PaintingTile(props) {
             </div>
             <div className="painting-tile__attribute-section">
                 <div className="attribute-section__text">
-                    <h3>The Placeholder</h3>
-                    <p>Johannes Placeholder - 1820</p>
+                    <h3 className="painting-tile__titles">The Placeholder</h3>
+                    <p className="painting-tile__under-title">Johannes Placeholder - 1820</p>
                 </div>
                 <div>
-                    <h3>Add colors</h3>
+                    <h3 className="painting-tile__titles">Add colors</h3>
                     <ul className="painting-tile-attribute-section__color-list">
                         <li className="color-list__list-item"></li>
                         <li className="color-list__list-item"></li>
@@ -24,7 +24,7 @@ function PaintingTile(props) {
                         <li className="color-list__list-item"></li>
                         <li className="color-list__list-item"></li>
                     </ul>
-                    <Link>Add all colors</Link>
+                    <Link className="painting-tile__link" onClick="/">Add all colors</Link>
                 </div>
 
             </div>

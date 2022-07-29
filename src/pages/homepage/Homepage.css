@@ -11,6 +11,12 @@ main {
     background-color: var(--main-background-color-dark);
 }
 
+/*-----------form-----------*/
+
+.search-query__section{
+    margin: 1em 0 2.5em 0;
+}
+
 fieldset {
     display: flex;
     flex-direction: column;

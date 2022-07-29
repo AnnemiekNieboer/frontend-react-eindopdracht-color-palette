@@ -25,7 +25,7 @@ function Homepage() {
                 />
             </Header>
             <main className="inner-container__reusable">
-                <section>
+                <section className="search-query__section">
                     <h2>Search for Color Inspiration</h2>
                     <form>
                         <fieldset aria-label="Search for color inspiration by artist/painting">
@@ -98,6 +98,10 @@ function Homepage() {
                 <section className="search-result">
                     <h2>Results</h2>
                     <PaintingTile/>
+                    <PaintingTile/>
+                    <PaintingTile/>
+                    <PaintingTile/>
+
                 </section>
 
             </main>
