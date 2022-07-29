@@ -40,44 +40,58 @@ function Homepage() {
                         <h4>Search options (optional)</h4>
                         <fieldset aria-label="Optional search options">
                             <h5>Search by color</h5>
-                            <label htmlFor="color1">
-                                <input onClick={toggleCheckedRadioButton1} value={checkedRadioButton1} type="radio"
-                                       id="color1" name="select-color"/>
-                            </label>
-                            <label htmlFor="color2">
-                                <input onClick={toggleCheckedRadioButton2} value={checkedRadioButton2} type="radio"
-                                       id="color2" name="select-color"/>
-                            </label>
-                            <label htmlFor="color3">
-                                <input type="radio" id="color3" name="select-color"/>
-                            </label>
-                            <label htmlFor="color4">
-                                <input type="radio" id="color4" name="select-color"/>
-                            </label>
-                            <label htmlFor="color5">
-                                <input type="radio" id="color5" name="select-color"/>
-                            </label>
-                            <label htmlFor="color6">
-                                <input type="radio" id="color6" name="select-color"/>
-                            </label>
-                            <label htmlFor="color7">
-                                <input type="radio" id="color7" name="select-color"/>
-                            </label>
-                            <label htmlFor="color8">
-                                <input type="radio" id="color8" name="select-color"/>
-                            </label>
-                            <label htmlFor="color9">
-                                <input type="radio" id="color9" name="select-color"/>
-                            </label>
-                            <label htmlFor="color10">
-                                <input type="radio" id="color10" name="select-color"/>
-                            </label>
-                            <label htmlFor="color11">
-                                <input type="radio" id="color11" name="select-color"/>
-                            </label>
-                            <label htmlFor="color12">
-                                <input type="radio" id="color12" name="select-color"/>
-                            </label>
+
+                            <div className="checkboxes-container">
+                                <label className="checkbox" htmlFor="color1">
+                                    <input
+                                        onClick={toggleCheckedRadioButton1}
+                                        value={checkedRadioButton1}
+                                        type="checkbox"
+                                        id="color1" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
+                                </label>
+                                <label className="checkbox" htmlFor="color2">
+                                    <input
+                                        onClick={toggleCheckedRadioButton2}
+                                        value={checkedRadioButton2}
+                                        type="checkbox"
+                                        id="color2" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
+                                </label>
+                                <label className="checkbox" htmlFor="color3">
+                                    <input type="checkbox" id="color3" name="select-color"/>
+                                </label>
+                                <label className="checkbox" htmlFor="color4">
+                                    <input type="checkbox" id="color4" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
+                                </label>
+                                <label className="checkbox" htmlFor="color5">
+                                    <input type="checkbox" id="color5" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
+                                </label>
+                                <label className="checkbox" htmlFor="color6">
+                                    <input type="checkbox" id="color6" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
+                                </label>
+                                <label className="checkbox" htmlFor="color7">
+                                    <input type="checkbox" id="color7" name="select-color"/>
+                                </label>
+                                <label className="checkbox" htmlFor="color8">
+                                    <input type="checkbox" id="color8" name="select-color"/>
+                                </label>
+                                <label className="checkbox" htmlFor="color9">
+                                    <input type="checkbox" id="color9" name="select-color"/>
+                                </label>
+                                <label className="checkbox" htmlFor="color10">
+                                    <input type="checkbox" id="color10" name="select-color"/>
+                                </label>
+                                <label className="checkbox" htmlFor="color11">
+                                    <input type="checkbox" id="color11" name="select-color"/>
+                                </label>
+                                <label className="checkbox" htmlFor="color12">
+                                    <input type="checkbox" id="color12" name="select-color"/>
+                                </label>
+                            </div>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="search-by-catalogue-title">
