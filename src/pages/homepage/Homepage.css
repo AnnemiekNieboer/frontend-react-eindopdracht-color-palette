@@ -25,6 +25,11 @@ fieldset {
     border: none;
 }
 
+label {
+    display: flex;
+    flex-direction: column;
+}
+
 .search-query__input-field {
     width: 100%;
     background-image: url("../../assets/icons/search.png");
@@ -43,21 +48,9 @@ select {
     flex-wrap: wrap;
     gap: 0.6em;
     width: 70vw;
+    margin-top: 0.5em;
 }
 
-/*.checkbox {*/
-/*    width: 2.3em;*/
-/*    height: 2.3em;*/
-/*    border: 1px solid var(--main-background-color-dark);*/
-/*    background-color: var(--main-background-color-light);*/
-/*    border-radius: 10px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
-
-/*.checkbox:hover {*/
-/*    border: 2px solid var(--main-background-color-dark);*/
-/*}*/
 .checkbox {
     position: relative;
     width: 2.3em;
@@ -84,16 +77,12 @@ select {
     left: 0;
     height: inherit;
     width: inherit;
-    /*background-color: #eee;*/
 }
 
 .checkbox:hover input ~ .checkbox__checkmark {
-    border: 1px solid var(--main-background-color-dark);
+    border: 3px solid var(--main-focus-color);
+    border-radius: 10px;
 }
-
-/*.checkbox input:checked ~ .checkbox__checkmark {*/
-/*    background-color: #2196F3;*/
-/*}*/
 
 .checkbox__checkmark:after {
     content: "";
@@ -106,8 +95,8 @@ select {
 }
 
 .checkbox .checkbox__checkmark:after {
-    /*left: 9px;*/
-    /*top: 5px;*/
+    left: 18px;
+    top: 9px;
     width: 10px;
     height: 20px;
     border: solid var(--main-background-color-dark);

@@ -60,6 +60,7 @@ function Homepage() {
                                 </label>
                                 <label className="checkbox" htmlFor="color3">
                                     <input type="checkbox" id="color3" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                                 <label className="checkbox" htmlFor="color4">
                                     <input type="checkbox" id="color4" name="select-color"/>
@@ -75,21 +76,27 @@ function Homepage() {
                                 </label>
                                 <label className="checkbox" htmlFor="color7">
                                     <input type="checkbox" id="color7" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                                 <label className="checkbox" htmlFor="color8">
                                     <input type="checkbox" id="color8" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                                 <label className="checkbox" htmlFor="color9">
                                     <input type="checkbox" id="color9" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                                 <label className="checkbox" htmlFor="color10">
                                     <input type="checkbox" id="color10" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                                 <label className="checkbox" htmlFor="color11">
                                     <input type="checkbox" id="color11" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                                 <label className="checkbox" htmlFor="color12">
                                     <input type="checkbox" id="color12" name="select-color"/>
+                                    <span className="checkbox__checkmark"></span>
                                 </label>
                             </div>
                         </fieldset>
