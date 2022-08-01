@@ -21,7 +21,7 @@ function Register() {
                     <label className="authorization__label" htmlFor="email">
                         E-mail
                         <input
-                            className="input-field__reuseable authorization__input-field"
+                            className="input-field__reusable authorization__input-field"
                             type="email"
                             id="email"
                             placeholder="Enter your email"
