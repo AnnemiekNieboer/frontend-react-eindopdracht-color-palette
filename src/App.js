@@ -9,25 +9,27 @@ import InspirationPage from "./pages/inspirationPage/InspirationPage";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Footer from "./components/footer/Footer";
+import MyColorPalette from "./pages/myColorPalette/MyColorPalette";
 
 function App() {
     return (
         <>
-          <Switch>
-            <Route exact path="/">
-              <Homepage/>
-            </Route>
-            <Route path="/inspiration">
-              <InspirationPage/>
-            </Route>
-            <Route path="/login">
-              <Login/>
-            </Route>
-            <Route path="/register">
-              <Register/>
-            </Route>
-          </Switch>
-          <Footer/>
+            <MyColorPalette/>
+            <Switch>
+                <Route exact path="/">
+                    <Homepage/>
+                </Route>
+                <Route path="/inspiration">
+                    <InspirationPage/>
+                </Route>
+                <Route path="/login">
+                    <Login/>
+                </Route>
+                <Route path="/register">
+                    <Register/>
+                </Route>
+            </Switch>
+            <Footer/>
         </>
     );
 }

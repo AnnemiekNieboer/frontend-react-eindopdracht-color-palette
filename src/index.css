@@ -15,6 +15,7 @@
   --main-contrast-color: #3C4C76;
   --main-background-color-light: #F5F5F5;
   --main-background-color-dark: #393735;
+  --main-background-color-transparent: rgba(245, 245, 245, 95%);
   --main-font-color-light: #F5F5F5;
   --main-font-color-dark: #393735;
   --main-shadow-color: #0000003D;
