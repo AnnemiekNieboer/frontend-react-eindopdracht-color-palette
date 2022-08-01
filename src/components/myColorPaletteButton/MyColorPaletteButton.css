@@ -1,0 +1,17 @@
+.my-color-palette__open-button {
+    position: fixed;
+    top: 30vh;
+    right: -50px;
+    transform: rotate(-90deg);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+}
+
+.my-color-palette-button__icon {
+    width: 1.7em;
+    margin-right: 0.7em;
+    transform: rotate(90deg);
+}

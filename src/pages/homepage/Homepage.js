@@ -3,6 +3,7 @@ import "./Homepage.css";
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 import PaintingTile from "../../components/paintingTile/PaintingTile";
+import MyColorPaletteButton from "../../components/myColorPaletteButton/MyColorPaletteButton";
 
 function Homepage() {
 
@@ -26,6 +27,7 @@ function Homepage() {
                 />
             </Header>
             <main className="inner-container__reusable">
+                <MyColorPaletteButton/>
                 <section className="search-query__section" id="search-query__section">
                     <h2>Search for Color Inspiration</h2>
                     <form>
