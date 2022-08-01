@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
@@ -9,15 +9,19 @@ import Checkbox from "../../components/checkbox/Checkbox";
 function Homepage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [colorQuery, setColorQuery] = useState("");
+    const [catalogueQuery, setCatalogueQuery] = useState("");
 
+    const ref = useRef(null);
+
+    const handleRef = () => {
+        ref.current?.scrollIntoView({behavior: "smooth"})};
 
     function submitForm(e) {
         e.preventDefault();
         console.log(searchQuery)
         console.log(colorQuery.hexColor);
+        console.log(catalogueQuery);
     }
-
-    //Als checked is true, dan false, als checked is false, dan checked is true
 
     return (
         <div className="outer-container__reusable">
@@ -27,14 +31,14 @@ function Homepage() {
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
                 <Button
-                    onClick="#search-query__section"
+                    onClick={handleRef}
                     text="search now"
                     type="button"
                 />
             </Header>
             <main className="inner-container__reusable">
                 <MyColorPaletteButton/>
-                <section className="search-query__section" id="search-query__section">
+                <section className="search-query__section" ref={ref}>
                     <h2>Search for Color Inspiration</h2>
                     <form onSubmit={submitForm}>
                         <fieldset aria-label="Search for color inspiration by artist/painting">
@@ -202,10 +206,17 @@ function Homepage() {
                         <fieldset>
                             <label htmlFor="search-by-catalogue-title">
                                 Search by catalogue title
-                                <select className="input-field__reusable" id="search-by-catalogue-title">
-                                    <option value="test1">test</option>
-                                    <option value="test2">test</option>
-                                    <option value="test3">test</option>
+                                <select
+                                    className="input-field__reusable"
+                                    id="search-by-catalogue-title"
+                                    value={catalogueQuery}
+                                    onChange={(e) => setCatalogueQuery(e.target.value)}
+                                >
+                                    <option value="">all catalogues</option>
+                                    <option value="(under+construction)+Dutch+Paintings">Dutch paintings</option>
+                                    <option value="Early%20Netherlandish%20Paintings">Early Netherlandish Paintings</option>
+                                    <option value="Flemish+Paintings+in+the+Rijksmuseum">Flemish Paintings in the Rijksmuseum</option>
+                                    <option value="Dutch%20Paintings%20of%20the%20Seventeenth%20Century%20in%20the%20Rijksmuseum">Dutch Paintings of the Seventeenth Century in the Rijksmuseum</option>
                                 </select>
                             </label>
                         </fieldset>
