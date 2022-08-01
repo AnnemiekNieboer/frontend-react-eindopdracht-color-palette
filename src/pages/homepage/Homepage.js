@@ -4,12 +4,18 @@ import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 import PaintingTile from "../../components/paintingTile/PaintingTile";
 import MyColorPaletteButton from "../../components/myColorPaletteButton/MyColorPaletteButton";
+import Checkbox from "../../components/checkbox/Checkbox";
 
 function Homepage() {
+    const [searchQuery, setSearchQuery] = useState("");
+    const [colorQuery, setColorQuery] = useState("");
 
-    const [checkedRadioButton1, toggleCheckedRadioButton1] = React.useState("");
-    const [checkedRadioButton2, toggleCheckedRadioButton2] = React.useState("");
 
+    function submitForm(e) {
+        e.preventDefault();
+        console.log(searchQuery)
+        console.log(colorQuery.hexColor);
+    }
 
     //Als checked is true, dan false, als checked is false, dan checked is true
 
@@ -30,76 +36,167 @@ function Homepage() {
                 <MyColorPaletteButton/>
                 <section className="search-query__section" id="search-query__section">
                     <h2>Search for Color Inspiration</h2>
-                    <form>
+                    <form onSubmit={submitForm}>
                         <fieldset aria-label="Search for color inspiration by artist/painting">
                             <label htmlFor="search-query-artist-painting">
                                 Search by artist/painting
                             </label>
                             <input className="search-query__input-field input-field__reusable" type="text"
                                    id="search-query-artist-painting" name="search-query-artist-painting"
-                                   placeholder="artist/painting"/>
+                                   placeholder="artist/painting"
+                                   value={searchQuery}
+                                   onChange={(e) => setSearchQuery(e.target.value)}
+                            />
                         </fieldset>
                         <h4>Search options (optional)</h4>
                         <fieldset aria-label="Optional search options">
                             <h5>Search by color</h5>
 
                             <div className="checkboxes-container">
-                                <label className="checkbox" htmlFor="color1">
-                                    <input
-                                        onClick={toggleCheckedRadioButton1}
-                                        value={checkedRadioButton1}
-                                        type="checkbox"
-                                        id="color1" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color2">
-                                    <input
-                                        onClick={toggleCheckedRadioButton2}
-                                        value={checkedRadioButton2}
-                                        type="checkbox"
-                                        id="color2" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color3">
-                                    <input type="checkbox" id="color3" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color4">
-                                    <input type="checkbox" id="color4" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color5">
-                                    <input type="checkbox" id="color5" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color6">
-                                    <input type="checkbox" id="color6" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color7">
-                                    <input type="checkbox" id="color7" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color8">
-                                    <input type="checkbox" id="color8" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color9">
-                                    <input type="checkbox" id="color9" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color10">
-                                    <input type="checkbox" id="color10" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color11">
-                                    <input type="checkbox" id="color11" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
-                                <label className="checkbox" htmlFor="color12">
-                                    <input type="checkbox" id="color12" name="select-color"/>
-                                    <span className="checkbox__checkmark"></span>
-                                </label>
+                                <Checkbox
+                                    className="checkbox color1"
+                                    labelName="#000000"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#000000"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#000000"
+                                />
+                                <Checkbox
+                                    className="checkbox color2"
+                                    labelName="#B5BFCC"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#B5BFCC"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#B5BFCC"
+                                />
+                                <Checkbox
+                                    className="checkbox color3"
+                                    labelName="#E0CC91"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#E0CC91"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#E0CC91"
+                                />
+                                <Checkbox
+                                    className="checkbox color4"
+                                    labelName="#F49B7A"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#F49B7A"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#F49B7A"
+                                />
+                                <Checkbox
+                                    className="checkbox color5"
+                                    labelName="#2F4F4F"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#2F4F4F"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#2F4F4F"
+                                />
+                                <Checkbox
+                                    className="checkbox color6"
+                                    labelName="#DDA5AA"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#DDA5AA"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#DDA5AA"
+                                />
+                                <Checkbox
+                                    className="checkbox color7"
+                                    labelName="#E09714"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#E09714"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#E09714"
+                                />
+                                <Checkbox
+                                    className="checkbox color8"
+                                    labelName="#B35A1F"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#B35A1F"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#B35A1F"
+                                />
+                                <Checkbox
+                                    className="checkbox color9"
+                                    labelName="#367614"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#367614"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#367614"
+                                />
+                                <Checkbox
+                                    className="checkbox color10"
+                                    labelName="#4019B1"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#4019B1"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#4019B1"
+                                />
+                                <Checkbox
+                                    className="checkbox color11"
+                                    labelName="#DE4153"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#DE4153"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#DE4153"
+                                />
+                                <Checkbox
+                                    className="checkbox color12"
+                                    labelName="#62AD77"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#62AD77"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#62AD77"
+                                />
+                                <Checkbox
+                                    className="checkbox color13"
+                                    labelName="#8268DC"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#8268DC"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#8268DC"
+                                />
+                                <Checkbox
+                                    className="checkbox color14"
+                                    labelName="#850085"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#850085"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#850085"
+                                />
+                                <Checkbox
+                                    className="checkbox color15"
+                                    labelName="#981313"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#981313"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#981313"
+                                />
+                                <Checkbox
+                                    className="checkbox color16"
+                                    labelName="#FFEB00"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#FFEB00"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#FFEB00"
+                                />
+                                <Checkbox
+                                    className="checkbox color17"
+                                    labelName="#4279DB"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === "#4279DB"}
+                                    colorFunction={setColorQuery}
+                                    hexColor="#4279DB"
+                                />
+                                <Checkbox
+                                    className="checkbox color18"
+                                    labelName="all-colors"
+                                    value={colorQuery}
+                                    checked={colorQuery.hexColor === ""}
+                                    colorFunction={setColorQuery}
+                                    hexColor=""
+                                />
                             </div>
                         </fieldset>
                         <fieldset>
