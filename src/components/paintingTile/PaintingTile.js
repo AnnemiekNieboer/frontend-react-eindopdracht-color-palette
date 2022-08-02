@@ -11,11 +11,6 @@ function PaintingTile({objectNumber, key}) {
     const [imageUrlOfPainting, fetchImageUrlOfPainting] = useState("");
     const [colorsOfPainting, fetchColorsOfPainting] = useState([]);
 
-    // function getColorsOfPainting(array) {
-    //     return array.map(color => color.hex);
-    // }
-
-
     useEffect(() => {
         async function getPaintingDetail() {
 
@@ -54,7 +49,7 @@ function PaintingTile({objectNumber, key}) {
                                 className="color-list__list-item"
                                 key={hex}
                                 style={{
-                                    backgroundColor: {hex},
+                                    backgroundColor: `${hex}`,
                                 }}
                             ></li>
                         ))
