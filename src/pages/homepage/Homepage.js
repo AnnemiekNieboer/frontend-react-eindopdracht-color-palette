@@ -1,4 +1,5 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
+import axios from "axios";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
@@ -22,6 +23,29 @@ function Homepage() {
         console.log(colorQuery.hexColor);
         console.log(catalogueQuery);
     }
+
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
+    const [paintingsData, fetchPaintingsData] = useState([])
+    const apiKey = "0fxKSuxK";
+
+    useEffect(() => {
+        async function getPaintingData() {
+            toggleError(false);
+            toggleLoading(true)
+            try {
+                const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&involvedMaker=Rembrandt+van+Rijn`);
+                console.log(result.data.artObjects);
+                fetchPaintingsData(result.data.artObjects)
+            } catch (e) {
+                console.error(e)
+                toggleError(true)
+            }
+            toggleLoading(false)
+        }
+        getPaintingData();
+    }, []);
+
 
     return (
         <div className="outer-container__reusable">
@@ -229,10 +253,14 @@ function Homepage() {
                 </section>
                 <section className="search-result">
                     <h2>Results</h2>
-                    <PaintingTile/>
-                    <PaintingTile/>
-                    <PaintingTile/>
-                    <PaintingTile/>
+                    {paintingsData.map((paintingData) => {
+                        return (
+                            <PaintingTile
+                            objectNumber={paintingData.objectNumber}
+                            key={paintingData.id}
+                            />
+                        )
+                    })}
                 </section>
             </main>
         </div>
