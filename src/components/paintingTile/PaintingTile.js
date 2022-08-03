@@ -23,6 +23,7 @@ function PaintingTile({objectNumber, key}) {
                 fetchImageUrlOfPainting(result.data.artObject.webImage.url);
                 fetchColorsOfPainting(result.data.artObject.colors);
                 console.log(colorsOfPainting);
+                console.log(colorsOfPainting.length);
             } catch (e) {
                 console.error(e)
             }
@@ -30,6 +31,8 @@ function PaintingTile({objectNumber, key}) {
 
         getPaintingDetail();
     }, [objectNumber]);
+
+    if (colorsOfPainting.length > 0 )
 
     return (
         <article className="painting-tile" key={key}>
