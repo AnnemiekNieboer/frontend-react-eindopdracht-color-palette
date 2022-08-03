@@ -3,6 +3,7 @@ import axios from "axios";
 import "./PaintingTile.css"
 import {Link} from "react-router-dom";
 
+//function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
     const apiKey = "0fxKSuxK";
     const [titleOfPainting, fetchTitleOfPainting] = useState("");

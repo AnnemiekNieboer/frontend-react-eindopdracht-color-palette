@@ -6,46 +6,59 @@ import Button from "../../components/button/Button";
 import PaintingTile from "../../components/paintingTile/PaintingTile";
 import MyColorPaletteButton from "../../components/myColorPaletteButton/MyColorPaletteButton";
 import Checkbox from "../../components/checkbox/Checkbox";
+import goUpIcon from "../../assets/icons/go-up.png"
 
 function Homepage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [colorQuery, setColorQuery] = useState("");
     const [catalogueQuery, setCatalogueQuery] = useState("");
 
-    const ref = useRef(null);
-
-    const handleRef = () => {
-        ref.current?.scrollIntoView({behavior: "smooth"})};
-
-    function submitForm(e) {
-        e.preventDefault();
-        console.log(searchQuery)
-        console.log(colorQuery.hexColor);
-        console.log(catalogueQuery);
-    }
+    const refSearch = useRef(null);
+    const refResults = useRef(null)
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
+    const [noResults, toggleNoResults] = useState(false);
+    const [noSearch, toggleNoSearch] = useState(true);
     const [paintingsData, fetchPaintingsData] = useState([])
     const apiKey = "0fxKSuxK";
 
-    useEffect(() => {
+    //Function that is fired when you submit the form
+    function submitForm(e) {
+        e.preventDefault();
+        getPaintingData();
+        refResults.current?.scrollIntoView({behavior: "smooth"})
+        console.log(searchQuery);
+        console.log(colorQuery.hexColor);
+        console.log(catalogueQuery);
+
         async function getPaintingData() {
             toggleError(false);
-            toggleLoading(true)
+            toggleLoading(true);
+            toggleNoResults(false);
+            toggleNoSearch(false);
             try {
-                const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&involvedMaker=Rembrandt+van+Rijn`);
+                const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection`, {
+                    params: {
+                        key: apiKey,
+                        imgonly: "True",
+                        q: searchQuery ? searchQuery : null,
+                        // cctitle: "(under+construction)+Dutch+Paintings%20I",
+                        // f: `.normalized32Colors.hex${colorQuery}` ? `.normalized32Colors.hex${colorQuery}` : ".normalized32Colors.hex 4279DB %23",
+                        // f.normalized32Colors.hex: "4279DB %23",
+                        // f.normalized32Colors.hex: "%234279DB",
+                    }
+                });
                 console.log(result.data.artObjects);
-                fetchPaintingsData(result.data.artObjects)
+                fetchPaintingsData(result.data.artObjects);
+                if (result.data.artObjects.length === 0) toggleNoResults(true);
             } catch (e) {
                 console.error(e)
                 toggleError(true)
             }
             toggleLoading(false)
         }
-        getPaintingData();
-    }, []);
-
+    }
 
     return (
         <div className="outer-container__reusable">
@@ -55,14 +68,14 @@ function Homepage() {
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
                 <Button
-                    onClick={handleRef}
+                    onClick= {() => refSearch.current?.scrollIntoView({behavior: "smooth"})}
                     text="search now"
                     type="button"
                 />
             </Header>
             <main className="inner-container__reusable">
                 <MyColorPaletteButton/>
-                <section className="search-query__section" ref={ref}>
+                <section className="search-query__section" ref={refSearch}>
                     <h2>Search for Color Inspiration</h2>
                     <form onSubmit={submitForm}>
                         <fieldset aria-label="Search for color inspiration by artist/painting">
@@ -237,7 +250,7 @@ function Homepage() {
                                     onChange={(e) => setCatalogueQuery(e.target.value)}
                                 >
                                     <option value="">all catalogues</option>
-                                    <option value="(under+construction)+Dutch+Paintings">Dutch paintings</option>
+                                    <option value="(under+construction)+Dutch+Paintings%20I">Dutch paintings</option>
                                     <option value="Early%20Netherlandish%20Paintings">Early Netherlandish Paintings</option>
                                     <option value="Flemish+Paintings+in+the+Rijksmuseum">Flemish Paintings in the Rijksmuseum</option>
                                     <option value="Dutch%20Paintings%20of%20the%20Seventeenth%20Century%20in%20the%20Rijksmuseum">Dutch Paintings of the Seventeenth Century in the Rijksmuseum</option>
@@ -251,8 +264,12 @@ function Homepage() {
                         />
                     </form>
                 </section>
-                <section className="search-result">
+                <section className="search-result" ref={refResults}>
                     <h2>Results</h2>
+                    {noSearch && <span>Use the search bar above, to find a nice color palette</span>}
+                    {loading && <span>Loading...</span>}
+                    {error && <span>Sorry, something went wrong with getting your results. Please try again later</span>}
+                    {noResults && <span>No results found for "{searchQuery}", try to search for "Gallery of honour" and see some cool results</span>}
                     {paintingsData.map((paintingData) => {
                         return (
                             <PaintingTile
@@ -262,6 +279,7 @@ function Homepage() {
                         )
                     })}
                 </section>
+                <img alt="go-to-top-of-search-section" src={goUpIcon} onClick={() => refSearch.current?.scrollIntoView({behavior: "smooth"})} className="search-result__go-up-icon"/>
             </main>
         </div>
     );

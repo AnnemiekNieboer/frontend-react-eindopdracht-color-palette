@@ -188,5 +188,13 @@ select {
     color: var(--main-font-color-dark);
 }
 
+/*------------Search-results---------------*/
+
+.search-result__go-up-icon {
+    align-self: center;
+    cursor: pointer;
+    width: 2em;
+    margin-top: 1em;
+}
 
 
