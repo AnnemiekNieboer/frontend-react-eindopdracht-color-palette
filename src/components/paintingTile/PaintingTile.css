@@ -41,10 +41,16 @@
     border: 1px solid var(--main-background-color-dark);
     border-radius: 10px;
     list-style: none;
+    transition: box-shadow 300ms linear;
+    cursor: pointer;
+}
+
+.color-list__list-item:hover{
+    box-shadow: var(--main-shadow-color-dark) 0 3px 8px;
 }
 
 
-/*----------fonts------------*/
+    /*----------fonts------------*/
 
 .painting-tile__titles {
     font-size: 1em;
