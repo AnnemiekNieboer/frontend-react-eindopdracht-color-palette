@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import axios from "axios";
 import "./PaintingTile.css"
 import {Link} from "react-router-dom";
+import {PaletteContext} from "../../context/PaletteContext";
 
 //function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
@@ -11,6 +12,8 @@ function PaintingTile({objectNumber, key}) {
     const [dateOfPainting, fetchDateOfPainting] = useState("");
     const [imageUrlOfPainting, fetchImageUrlOfPainting] = useState("");
     const [colorsOfPainting, fetchColorsOfPainting] = useState([]);
+
+    const { addHexColorFunction } = useContext(PaletteContext);
 
     useEffect(() => {
         async function getPaintingDetail() {
@@ -51,6 +54,7 @@ function PaintingTile({objectNumber, key}) {
                         {colorsOfPainting.map(({hex}) => (
                             <li
                                 className="color-list__list-item"
+                                onClick={() => addHexColorFunction(hex)}
                                 key={hex}
                                 style={{
                                     backgroundColor: `${hex}`,

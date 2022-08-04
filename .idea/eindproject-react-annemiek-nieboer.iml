@@ -10,5 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="frontend-react-login-demo" />
+    <orderEntry type="module" module-name="Meedoen-met-les-6-context" />
   </component>
 </module>

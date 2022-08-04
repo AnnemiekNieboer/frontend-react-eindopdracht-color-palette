@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useRef, useState, useEffect, useContext} from "react";
 import axios from "axios";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
@@ -7,6 +7,7 @@ import PaintingTile from "../../components/paintingTile/PaintingTile";
 import MyColorPaletteButton from "../../components/myColorPaletteButton/MyColorPaletteButton";
 import Checkbox from "../../components/checkbox/Checkbox";
 import goUpIcon from "../../assets/icons/go-up.png"
+import {PaletteContext} from "../../context/PaletteContext";
 
 function Homepage() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -22,6 +23,9 @@ function Homepage() {
     const [noSearch, toggleNoSearch] = useState(true);
     const [paintingsData, fetchPaintingsData] = useState([])
     const apiKey = "0fxKSuxK";
+
+    const { colorPalette } = useContext(PaletteContext)
+    console.log(colorPalette);
 
     //Function that is fired when you submit the form
     function submitForm(e) {

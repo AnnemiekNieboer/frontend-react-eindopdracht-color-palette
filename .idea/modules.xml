@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../React les 6 - Context/meedoen-met-les-6-context/.idea/Meedoen-met-les-6-context.iml" filepath="$PROJECT_DIR$/../React les 6 - Context/meedoen-met-les-6-context/.idea/Meedoen-met-les-6-context.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/eindproject-react-annemiek-nieboer.iml" filepath="$PROJECT_DIR$/.idea/eindproject-react-annemiek-nieboer.iml" />
       <module fileurl="file://$PROJECT_DIR$/../React les-8/Voorbeeld Nova - les 8 local storage/frontend-react-login-demo-final/.idea/frontend-react-login-demo.iml" filepath="$PROJECT_DIR$/../React les-8/Voorbeeld Nova - les 8 local storage/frontend-react-login-demo-final/.idea/frontend-react-login-demo.iml" />
     </modules>
