@@ -1,6 +1,6 @@
 .my-color-palette__container {
     position: fixed;
-    top: 15vh;
+    top: 10vh;
     right: 0;
     width: 88vw;
     min-height: 80vh;
@@ -12,12 +12,16 @@
     overflow: visible;
 }
 
-.my-color-palette__container-opened {
-    opacity: 100%;
+.my-color-palette-transition {
+    transition: display 0.3s linear;
 }
 
-.my-color-palette__container-closed {
-    opacity: 0;
+.my-color-palette-opened {
+    display: flex;
+}
+
+.my-color-palette-closed {
+    display: none;
 }
 
 
@@ -30,11 +34,10 @@
     width: 2rem;
     height: 2rem;
     position: fixed;
-    top: 15vh;
+    top: 10vh;
     right: 1vw;
     cursor: pointer;
 }
-
 
 /*----------Typography------------*/
 
@@ -58,6 +61,11 @@
     font-size: 0.9em;
     font-weight: 500;
     color: var(--main-font-color-dark);
+    transition: font-weight 250ms linear;
+}
+
+.my-color-palette-text-block__hex-code-link:hover{
+    font-weight: 700;
 }
 
 .my-color-palette-text-block__hex-code-link:visited{
@@ -98,7 +106,7 @@
     height: 4.7em;
     background-color: #3C4C76;
     border-radius: 10px;
-    border: 1px solid var(--main-background-color-dark);
+    border: 0.3px solid var(--main-background-color-dark);
     position: relative;
     transition: box-shadow 300ms;
 }

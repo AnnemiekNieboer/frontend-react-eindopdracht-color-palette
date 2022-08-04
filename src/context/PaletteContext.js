@@ -5,6 +5,7 @@ export const PaletteContext = createContext({});
 
 function PaletteContextProvider({children}) {
     const [colorPaletteHexCodes, setColorPaletteHexcodes] = useState([])
+    const [colorPaletteOpen, setColorPaletteOpen] = useState(false);
 
     function addHexColorToPalette(newVal) {
         setColorPaletteHexcodes(prev => [...prev, newVal]);
@@ -16,10 +17,13 @@ function PaletteContextProvider({children}) {
         }))
     }
 
+
     const data = {
         colorPalette: colorPaletteHexCodes,
         addHexColorFunction: addHexColorToPalette,
         removeHexColorFunction: removeHexColorFromPalette,
+        colorPaletteOpen: colorPaletteOpen,
+        setColorPaletteOpen: setColorPaletteOpen,
     }
 
     return (

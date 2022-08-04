@@ -1,13 +1,19 @@
 .my-color-palette__open-button {
     position: fixed;
     top: 30vh;
-    right: -50px;
+    right: -55px;
     transform: rotate(-90deg);
     display: flex;
     flex-direction: row;
     align-items: center;
     border-radius: 5px 5px 0 0;
     z-index: 1;
+    transition: box-shadow 300ms;
+    cursor: pointer;
+}
+
+.my-color-palette__open-button:hover{
+    box-shadow: var(--main-shadow-color-dark) 0 0 8px;
 }
 
 .my-color-palette-button__icon {
