@@ -10,9 +10,16 @@ function PaletteContextProvider({children}) {
         setColorPaletteHexcodes(prev => [...prev, newVal]);
     }
 
+    function removeHexColorFromPalette(removeVal) {
+        setColorPaletteHexcodes((current) => current.filter(element => {
+            return element !== removeVal;
+        }))
+    }
+
     const data = {
         colorPalette: colorPaletteHexCodes,
         addHexColorFunction: addHexColorToPalette,
+        removeHexColorFunction: removeHexColorFromPalette,
     }
 
     return (

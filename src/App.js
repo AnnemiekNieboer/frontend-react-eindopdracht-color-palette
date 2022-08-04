@@ -14,7 +14,7 @@ import MyColorPalette from "./pages/myColorPalette/MyColorPalette";
 function App() {
     return (
         <>
-            {/*<MyColorPalette/>*/}
+            <MyColorPalette/>
             <Switch>
                 <Route exact path="/">
                     <Homepage/>
