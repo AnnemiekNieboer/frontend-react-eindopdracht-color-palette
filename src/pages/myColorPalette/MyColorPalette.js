@@ -4,9 +4,13 @@ import {Link} from "react-router-dom";
 import Button from "../../components/button/Button";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {PaletteContext} from "../../context/PaletteContext";
+import {AuthContext} from "../../context/AuthContext";
 
 function MyColorPalette() {
     const {colorPalette, removeHexColorFunction, colorPaletteOpen, setColorPaletteOpen} = useContext(PaletteContext)
+    const { isAuth } = useContext(AuthContext);
+
+    console.log(isAuth);
 
     return (
         <div className={colorPaletteOpen ? "my-color-palette-transition my-color-palette-opened" : "my-color-palette-transition my-color-palette-closed"}>

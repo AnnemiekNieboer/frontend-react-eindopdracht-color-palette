@@ -28,7 +28,11 @@
     font-weight: 600;
 }
 
-.authorization__underline-text {
+.authorization__underline-text, .authorization__error {
     font-size: 0.85em;
     font-weight: 500;
+}
+
+.authorization__error {
+    color: red;
 }

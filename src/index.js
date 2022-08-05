@@ -7,15 +7,19 @@ import {
     BrowserRouter as Router,
 } from "react-router-dom";
 import PaletteContextProvider from "./context/PaletteContext";
+import AuthContextProvider from "./context/AuthContext";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <PaletteContextProvider>
-            <Router>
-                <App/>
-            </Router>
-        </PaletteContextProvider>
+        <AuthContextProvider>
+            <PaletteContextProvider>
+                <Router>
+                    <App/>
+                </Router>
+            </PaletteContextProvider>
+        </AuthContextProvider>
     </React.StrictMode>
 );
 
