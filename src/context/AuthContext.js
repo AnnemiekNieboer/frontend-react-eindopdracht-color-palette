@@ -19,6 +19,10 @@ function AuthContextProvider({children}) {
 
     }, []);
 
+    function goToLoginPage() {
+        history.push("/login")
+    }
+
     function login(token) {
         const decodedToken = jwt_decode(token);
         console.log(decodedToken);
@@ -55,6 +59,7 @@ function AuthContextProvider({children}) {
         endpoint: endpoint,
         login: login,
         logout: logout,
+        goToLoginPage: goToLoginPage,
     }
 
     return (
