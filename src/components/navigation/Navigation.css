@@ -17,15 +17,11 @@
     left: 1em;
     z-index: 1;
     box-shadow: var(--main-shadow-color) 0px 3px 8px;
-    transition: opacity 0.3s linear;
-}
-
-.navigation-opened {
-    opacity: 100%;
+    transition: visibility 0.3s linear;
 }
 
 .navigation-closed {
-    opacity: 0;
+    display: none;
 }
 
 .navigation__list-items {

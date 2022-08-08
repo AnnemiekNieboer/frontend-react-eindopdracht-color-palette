@@ -15,7 +15,7 @@ function Navigation() {
 
     return (
         <div className="navigation__container">
-            <ul className={hamburgerOpen ? "navigation-opened navigation__standard" : "navigation-closed navigation__standard"}>
+            <ul className={hamburgerOpen ? "navigation__standard" : "navigation-closed navigation__standard"}>
                 <li className="navigation__list-items">
                     <NavLink className="navigation__nav-link" exact to="/"
                              activeClassName="navigation-nav-link__active">home</NavLink>
