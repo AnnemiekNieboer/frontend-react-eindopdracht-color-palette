@@ -52,14 +52,14 @@ function PaintingTile({objectNumber, key}) {
                     <h3 className="painting-tile__titles">Add colors</h3>
                     <ul className="painting-tile-attribute-section__color-list">
                         {colorsOfPainting.map(({hex}) => (
-                            <li
+                            <button
                                 className="color-list__list-item"
                                 onClick={() => addHexColorFunction(hex)}
                                 key={hex}
                                 style={{
                                     backgroundColor: `${hex}`,
                                 }}
-                            ></li>
+                            ></button>
                         ))
                         }
                     </ul>
