@@ -10,6 +10,7 @@ function Login() {
     const [password, setPassword] = useState("")
 
     const {login, endpoint} = useContext(AuthContext);
+    const [error, toggleError] = useState(false);
 
     function handleLogin(e) {
         e.preventDefault(e)
@@ -19,6 +20,7 @@ function Login() {
     }
 
     async function makeLoginRequest() {
+        toggleError(false);
         try {
             const response = await axios.post(`${endpoint}api/auth/signin`, {
                 "username": username,
@@ -30,6 +32,7 @@ function Login() {
 
         } catch (e) {
             console.error(e)
+            toggleError(true);
         }
     }
 
@@ -52,6 +55,7 @@ function Login() {
                     onChangeUsername={(e) => setUsername(e.target.value)}
                     valuePassword={password}
                     onChangePassword={(e) => setPassword(e.target.value)}
+                    error={error && <span>Username/password invalid, try again or register a new account</span>}
                 />
             </main>
         </div>
