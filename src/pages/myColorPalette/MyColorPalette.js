@@ -10,7 +10,6 @@ function MyColorPalette() {
     const {colorPalette, removeHexColorFunction, colorPaletteOpen, setColorPaletteOpen} = useContext(PaletteContext)
     const { isAuth } = useContext(AuthContext);
 
-    const [error, toggleError] = useState(false);
     console.log(isAuth);
 
     return (
