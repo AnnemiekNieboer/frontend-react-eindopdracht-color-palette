@@ -4,6 +4,7 @@ import './Register.css';
 import Navigation from "../../components/navigation/Navigation";
 import Authorization from "../../components/authorization/Authorization";
 import {AuthContext} from "../../context/AuthContext";
+import {useHistory} from "react-router-dom";
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -13,9 +14,12 @@ function Register() {
     const { endpoint } = useContext((AuthContext));
     const [error, toggleError] = useState(false)
 
+    const history = useHistory();
+
     function submitRegister(e) {
         e.preventDefault();
         makeRegisterRequest();
+        history.push("/login");
         console.log(email);
         console.log(userName);
         console.log(password);

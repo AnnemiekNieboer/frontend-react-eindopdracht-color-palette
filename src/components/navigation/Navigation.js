@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import './Navigation.css';
 import Hamburger from "./Hamburger";
 import {NavLink} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";
 
 function Navigation() {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
+    const { isAuth, logout } = useContext(AuthContext);
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
@@ -22,8 +24,21 @@ function Navigation() {
                              activeClassName="navigation-nav-link__active">inspiration</NavLink>
                 </li>
                 <li className="navigation__list-items">
-                    <NavLink className="navigation__nav-link" exact to="/login"
-                             activeClassName="navigation-nav-link__active">login</NavLink>
+                    {isAuth ?
+                        <NavLink
+                            className="navigation__nav-link"
+                            onClick={logout}
+                            exact to="/login"
+                            activeClassName="navigation-nav-link__active">
+                            logout
+                        </NavLink>
+                        :
+                        <NavLink
+                            className="navigation__nav-link"
+                            exact to="/login"
+                            activeClassName="navigation-nav-link__active">
+                            login
+                        </NavLink>}
                 </li>
                 <li className="navigation__list-items">
                     <NavLink className="navigation__nav-link" exact to="/register"

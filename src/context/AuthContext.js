@@ -1,6 +1,6 @@
 import React, {createContext, useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
 
 export const AuthContext = createContext(false);
 
@@ -34,9 +34,19 @@ function AuthContextProvider({children}) {
             status: "done",
         });
 
-        console.log("De gebruiker is ingelogd");
+        console.log("User is logged in");
         history.push("/");
 
+    }
+
+    function logout() {
+        console.log("User is logged out");
+        toggleAuth({
+            isAuth: false,
+            user: null,
+            status: "done",
+        })
+        history.push("/");
     }
 
     const data = {
@@ -44,6 +54,7 @@ function AuthContextProvider({children}) {
         user: auth.user,
         endpoint: endpoint,
         login: login,
+        logout: logout,
     }
 
     return (
