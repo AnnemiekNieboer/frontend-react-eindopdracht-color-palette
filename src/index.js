@@ -13,13 +13,13 @@ import AuthContextProvider from "./context/AuthContext";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
+        <Router>
         <AuthContextProvider>
             <PaletteContextProvider>
-                <Router>
                     <App/>
-                </Router>
             </PaletteContextProvider>
         </AuthContextProvider>
+        </Router>
     </React.StrictMode>
 );
 
