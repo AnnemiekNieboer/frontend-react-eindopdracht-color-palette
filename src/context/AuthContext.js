@@ -1,4 +1,5 @@
 import React, {createContext, useEffect, useState} from "react";
+import axios from "axios";
 import {useHistory} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
@@ -15,13 +16,66 @@ function AuthContextProvider({children}) {
 
     const history = useHistory();
 
-    useEffect(() => {
-
-    }, []);
-
     function goToLoginPage() {
         history.push("/login")
     }
+
+    // Function to check if there is a token in the local storage and to check if it is expired or not
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        console.log(token);
+
+        if (token != null) {
+            const decodedToken = jwt_decode(token);
+            console.log(decodedToken);
+
+            if (decodedToken.exp > new Date()/1000) {
+                //Function to fetch user login data when token is not expired
+                async function getUserData() {
+                    try {
+                        const respons = await axios.get(`${endpoint}api/user`, {
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
+
+                        toggleAuth({
+                            isAuth: true,
+                            user: {
+                                email: respons.data.email,
+                                username: respons.data.username,
+                                id: respons.data.id,
+                            }
+
+                        })
+                        console.log(respons);
+                    } catch (e) {
+                        toggleAuth({
+                            ...auth,
+                            status: "error"
+                        })
+                        console.error(e);
+                        localStorage.clear();
+                    }
+                }
+                getUserData();
+            } else {
+                console.log("login is expired")
+                toggleAuth({
+                    ...auth,
+                    status: "done",
+                });
+            }
+        } else {
+            console.log("No login token found")
+            toggleAuth({
+                ...auth,
+                status: "done",
+            });
+        }
+    }, []);
+
 
     function login(token) {
         const decodedToken = jwt_decode(token);
@@ -64,7 +118,9 @@ function AuthContextProvider({children}) {
 
     return (
         <AuthContext.Provider value={data}>
-            {children}
+            {auth.status === 'done' && children}
+            {auth.status === 'pending' && <p>Loading the app...</p>}
+            {auth.status === 'error' && <p>Something went wrong, please refresh the page</p>}
         </AuthContext.Provider>
     )
 
