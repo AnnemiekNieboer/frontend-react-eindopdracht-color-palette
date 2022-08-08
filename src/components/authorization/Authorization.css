@@ -28,6 +28,10 @@
     font-weight: 600;
 }
 
+.underline-link:visited {
+    color: var(--main-font-color-dark);
+}
+
 .authorization__underline-text, .authorization__error {
     font-size: 0.85em;
     font-weight: 500;

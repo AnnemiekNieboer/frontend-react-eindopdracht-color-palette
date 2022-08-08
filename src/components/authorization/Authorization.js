@@ -32,7 +32,7 @@ function Authorization({onSubmitValue, header, children, underlineTextPart1, und
                         onChange={onChangePassword}
                     />
                 </label>
-                <p className="authorization__underline-text">{underlineTextPart1} <Link to={underlineLink}>{underlineLinkText}</Link> {underlineTextPart2}</p>
+                <p className="authorization__underline-text">{underlineTextPart1} <Link className="underline-link" to={underlineLink}>{underlineLinkText}</Link> {underlineTextPart2}</p>
                 <Button
                     text={buttonText}
                     type="submit"
