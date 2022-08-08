@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./MyColorPalette.css";
 import {Link} from "react-router-dom";
 import Button from "../../components/button/Button";
@@ -10,6 +10,7 @@ function MyColorPalette() {
     const {colorPalette, removeHexColorFunction, colorPaletteOpen, setColorPaletteOpen} = useContext(PaletteContext)
     const { isAuth } = useContext(AuthContext);
 
+    const [error, toggleError] = useState(false);
     console.log(isAuth);
 
     return (
@@ -34,9 +35,13 @@ function MyColorPalette() {
                             </div>
                             <div className="my-color-palette-color-item__text-block">
                                 <p className="my-color-palette-text-block__hex-code">{hexColor}</p>
-                                <CopyToClipboard text={hexColor}>
-                                    <Link className="my-color-palette-text-block__hex-code-link">copy #code</Link>
-                                </CopyToClipboard>
+                                {isAuth ?
+                                    <CopyToClipboard text={hexColor}>
+                                        <Link className="my-color-palette-text-block__hex-code-link">copy #code</Link>
+                                    </CopyToClipboard>
+                                    :
+                                    <Link to="/login" className="my-color-palette-text-block__hex-code-link">login to copy #code</Link>
+                                }
                             </div>
                         </div>
                     ))}
