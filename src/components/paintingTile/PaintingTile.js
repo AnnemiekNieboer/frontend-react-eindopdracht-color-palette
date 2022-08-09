@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import axios from "axios";
 import "./PaintingTile.css"
 import {Link} from "react-router-dom";
 import ColorsPaintingTile from "./ColorsPaintingTile";
+import {PaletteContext} from "../../context/PaletteContext";
 
 //function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
@@ -12,6 +13,8 @@ function PaintingTile({objectNumber, key}) {
     const [dateOfPainting, fetchDateOfPainting] = useState("");
     const [imageUrlOfPainting, fetchImageUrlOfPainting] = useState("");
     const [colorsOfPainting, fetchColorsOfPainting] = useState([]);
+
+    const {addHexColorFunction} = useContext(PaletteContext);
 
     useEffect(() => {
         async function getPaintingDetail() {
@@ -52,12 +55,21 @@ function PaintingTile({objectNumber, key}) {
                         <ul className="painting-tile-attribute-section__color-list">
                             {colorsOfPainting.map(({hex}) => (
                                 <ColorsPaintingTile
-                                hex={hex}
+                                    hex={hex}
                                 />
                             ))
                             }
                         </ul>
-                        <Link className="painting-tile__link" onClick="/">Add all colors</Link>
+                        <Link className="painting-tile__link"
+                              to="#"
+                              onClick={() => {
+                                  colorsOfPainting.map(({hex}) => (
+                                      addHexColorFunction(hex)
+                                  ))
+                              }}
+                        >
+                            Add all colors
+                        </Link>
                     </div>
 
                 </div>
