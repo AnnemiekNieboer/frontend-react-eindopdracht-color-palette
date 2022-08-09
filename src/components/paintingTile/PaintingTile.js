@@ -1,8 +1,7 @@
-import React, {useEffect, useState, useContext} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "./PaintingTile.css"
 import {Link} from "react-router-dom";
-import {PaletteContext} from "../../context/PaletteContext";
 import ColorsPaintingTile from "./ColorsPaintingTile";
 
 //function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
