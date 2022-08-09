@@ -216,11 +216,11 @@ function Homepage() {
                                 />
                                 <Checkbox
                                     className="checkbox color16"
-                                    labelName="#FFEB00"
+                                    labelName=" #FFEB00"
                                     value={colorQuery}
-                                    checked={colorQuery.hexColor === "#FFEB00"}
+                                    checked={colorQuery.hexColor === " #FFEB00"}
                                     colorFunction={setColorQuery}
-                                    hexColor="#FFEB00"
+                                    hexColor=" #FFEB00"
                                 />
                                 <Checkbox
                                     className="checkbox color17"
