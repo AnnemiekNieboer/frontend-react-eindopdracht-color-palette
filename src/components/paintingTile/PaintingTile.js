@@ -7,7 +7,6 @@ import {PaletteContext} from "../../context/PaletteContext";
 
 //function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
-    const apiKey = "0fxKSuxK";
     const [titleOfPainting, fetchTitleOfPainting] = useState("");
     const [artistOfPainting, fetchArtistOfPainting] = useState("");
     const [dateOfPainting, fetchDateOfPainting] = useState("");
@@ -20,7 +19,7 @@ function PaintingTile({objectNumber, key}) {
         async function getPaintingDetail() {
 
             try {
-                const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=${apiKey}`);
+                const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=${process.env.REACT_APP_API_KEY}`);
                 console.log(result);
                 fetchTitleOfPainting(result.data.artObject.title);
                 fetchArtistOfPainting(result.data.artObject.principalMaker);

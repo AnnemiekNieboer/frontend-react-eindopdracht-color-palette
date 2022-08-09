@@ -44,7 +44,7 @@ function Homepage() {
             try {
                 const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection`, {
                     params: {
-                        key: apiKey,
+                        key: process.env.REACT_APP_API_KEY,
                         imgonly: "True",
                         q: searchQuery ? searchQuery : null,
                         // cctitle: "(under+construction)+Dutch+Paintings%20I",
