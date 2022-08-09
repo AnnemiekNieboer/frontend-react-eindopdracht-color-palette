@@ -16,6 +16,7 @@ function AuthContextProvider({children}) {
 
     const history = useHistory();
 
+    // Function used on multiple places to go to login page
     function goToLoginPage() {
         history.push("/login")
     }
@@ -76,7 +77,7 @@ function AuthContextProvider({children}) {
         }
     }, []);
 
-
+    // Function for login in to My Color Palette
     function login(token) {
         const decodedToken = jwt_decode(token);
         console.log(decodedToken);
@@ -97,6 +98,7 @@ function AuthContextProvider({children}) {
 
     }
 
+    // Function for logging out of My Color Palette
     function logout() {
         console.log("User is logged out");
         toggleAuth({
