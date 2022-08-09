@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect, useContext} from "react";
+import React, {useRef, useState, useContext} from "react";
 import axios from "axios";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
@@ -22,7 +22,6 @@ function Homepage() {
     const [noResults, toggleNoResults] = useState(false);
     const [noSearch, toggleNoSearch] = useState(true);
     const [paintingsData, fetchPaintingsData] = useState([])
-    const apiKey = "0fxKSuxK";
 
     const { colorPalette } = useContext(PaletteContext)
     console.log(colorPalette);
@@ -47,10 +46,7 @@ function Homepage() {
                         key: process.env.REACT_APP_API_KEY,
                         imgonly: "True",
                         q: searchQuery ? searchQuery : null,
-                        // cctitle: "(under+construction)+Dutch+Paintings%20I",
-                        // f: `.normalized32Colors.hex${colorQuery}` ? `.normalized32Colors.hex${colorQuery}` : ".normalized32Colors.hex 4279DB %23",
-                        // f.normalized32Colors.hex: "4279DB %23",
-                        // f.normalized32Colors.hex: "%234279DB",
+                        "f.normalized32Colors.hex": colorQuery.hexColor ? colorQuery.hexColor : null,
                     }
                 });
                 console.log(result.data.artObjects);
