@@ -46,15 +46,15 @@ function AuthContextProvider({children}) {
                                 email: respons.data.email,
                                 username: respons.data.username,
                                 id: respons.data.id,
-                            }
-
+                            },
+                            status: "done"
                         })
-                        console.log(respons);
+                        console.log("user token is available and valid");
                     } catch (e) {
                         toggleAuth({
                             ...auth,
                             status: "error"
-                        })
+                        });
                         console.error(e);
                         localStorage.clear();
                     }
