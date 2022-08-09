@@ -36,7 +36,7 @@ function MyColorPalette() {
                                 <p className="my-color-palette-text-block__hex-code">{hexColor}</p>
                                 {isAuth ?
                                     <CopyToClipboard text={hexColor}>
-                                        <Link className="my-color-palette-text-block__hex-code-link">copy #code</Link>
+                                        <Link to="#" className="my-color-palette-text-block__hex-code-link">copy #code</Link>
                                     </CopyToClipboard>
                                     :
                                     <Link to="/login" className="my-color-palette-text-block__hex-code-link">login to copy #code</Link>
