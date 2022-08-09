@@ -1,0 +1,10 @@
+.color-added-to-palette {
+    animation: color-added 200ms linear;
+}
+
+@keyframes color-added {
+    25% { transform: scale(0.95);}
+    50% {transform: scale(0.90);}
+    75% {transform: scale(0.85);}
+    100% {transform: scale(0.80);}
+}

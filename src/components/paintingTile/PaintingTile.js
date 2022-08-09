@@ -3,6 +3,7 @@ import axios from "axios";
 import "./PaintingTile.css"
 import {Link} from "react-router-dom";
 import {PaletteContext} from "../../context/PaletteContext";
+import ColorsPaintingTile from "./ColorsPaintingTile";
 
 //function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
@@ -12,8 +13,6 @@ function PaintingTile({objectNumber, key}) {
     const [dateOfPainting, fetchDateOfPainting] = useState("");
     const [imageUrlOfPainting, fetchImageUrlOfPainting] = useState("");
     const [colorsOfPainting, fetchColorsOfPainting] = useState([]);
-
-    const { addHexColorFunction } = useContext(PaletteContext);
 
     useEffect(() => {
         async function getPaintingDetail() {
@@ -36,39 +35,35 @@ function PaintingTile({objectNumber, key}) {
         getPaintingDetail();
     }, [objectNumber]);
 
-    if (colorsOfPainting.length > 0 )
+    if (colorsOfPainting.length > 0)
 
-    return (
-        <article className="painting-tile" key={key}>
-            <div className="painting-tile__image-container">
-                <img className="painting-tile-image-container__image" src={imageUrlOfPainting} alt={titleOfPainting}/>
-            </div>
-            <div className="painting-tile__attribute-section">
-                <div className="attribute-section__text">
-                    <h3 className="painting-tile__titles">{titleOfPainting}</h3>
-                    <p className="painting-tile__under-title">{artistOfPainting} - {dateOfPainting}</p>
+        return (
+            <article className="painting-tile" key={key}>
+                <div className="painting-tile__image-container">
+                    <img className="painting-tile-image-container__image" src={imageUrlOfPainting}
+                         alt={titleOfPainting}/>
                 </div>
-                <div>
-                    <h3 className="painting-tile__titles">Add colors</h3>
-                    <ul className="painting-tile-attribute-section__color-list">
-                        {colorsOfPainting.map(({hex}) => (
-                            <button
-                                className="color-list__list-item"
-                                onClick={() => addHexColorFunction(hex)}
-                                key={hex}
-                                style={{
-                                    backgroundColor: `${hex}`,
-                                }}
-                            ></button>
-                        ))
-                        }
-                    </ul>
-                    <Link className="painting-tile__link" onClick="/">Add all colors</Link>
-                </div>
+                <div className="painting-tile__attribute-section">
+                    <div className="attribute-section__text">
+                        <h3 className="painting-tile__titles">{titleOfPainting}</h3>
+                        <p className="painting-tile__under-title">{artistOfPainting} - {dateOfPainting}</p>
+                    </div>
+                    <div>
+                        <h3 className="painting-tile__titles">Add colors</h3>
+                        <ul className="painting-tile-attribute-section__color-list">
+                            {colorsOfPainting.map(({hex}) => (
+                                <ColorsPaintingTile
+                                hex={hex}
+                                />
+                            ))
+                            }
+                        </ul>
+                        <Link className="painting-tile__link" onClick="/">Add all colors</Link>
+                    </div>
 
-            </div>
-        </article>
-    );
+                </div>
+            </article>
+        );
 }
 
 export default PaintingTile;
