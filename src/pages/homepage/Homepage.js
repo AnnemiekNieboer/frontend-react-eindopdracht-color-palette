@@ -47,6 +47,7 @@ function Homepage() {
                         imgonly: "True",
                         q: searchQuery ? searchQuery : null,
                         "f.normalized32Colors.hex": colorQuery.hexColor ? colorQuery.hexColor : null,
+                        cctitle: catalogueQuery ? catalogueQuery : null,
                     }
                 });
                 console.log(result.data.artObjects);
@@ -250,10 +251,10 @@ function Homepage() {
                                     onChange={(e) => setCatalogueQuery(e.target.value)}
                                 >
                                     <option value="">all catalogues</option>
-                                    <option value="(under+construction)+Dutch+Paintings%20I">Dutch paintings</option>
-                                    <option value="Early%20Netherlandish%20Paintings">Early Netherlandish Paintings</option>
-                                    <option value="Flemish+Paintings+in+the+Rijksmuseum">Flemish Paintings in the Rijksmuseum</option>
-                                    <option value="Dutch%20Paintings%20of%20the%20Seventeenth%20Century%20in%20the%20Rijksmuseum">Dutch Paintings of the Seventeenth Century in the Rijksmuseum</option>
+                                    <option value="(under construction) Dutch Paintings I">Dutch paintings</option>
+                                    <option value="Early Netherlandish Paintings">Early Netherlandish Paintings</option>
+                                    <option value="Flemish Paintings in the Rijksmuseum">Flemish Paintings in the Rijksmuseum</option>
+                                    <option value="Dutch Paintings of the Seventeenth Century in the Rijksmuseum">Dutch Paintings of the Seventeenth Century in the Rijksmuseum</option>
                                 </select>
                             </label>
                         </fieldset>
