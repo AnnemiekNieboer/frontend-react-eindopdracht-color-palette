@@ -1,4 +1,5 @@
 import React, {useContext, useState} from "react";
+import { jsPDF } from "jspdf";
 import "./MyColorPalette.css";
 import {Link} from "react-router-dom";
 import Button from "../../components/button/Button";
@@ -9,8 +10,26 @@ import {AuthContext} from "../../context/AuthContext";
 function MyColorPalette() {
     const {colorPalette, removeHexColorFunction, colorPaletteOpen, setColorPaletteOpen} = useContext(PaletteContext)
     const { isAuth } = useContext(AuthContext);
+    const [pdfItemsHidden, togglePdfItemsHidden] = useState(true)
 
     console.log(isAuth);
+
+    function createPdf() {
+        const doc = new jsPDF("p", "pt", "a4");
+        togglePdfItemsHidden(false);
+        generatePdf();
+
+        function generatePdf() {
+            doc.html(document.getElementById("pdf-my-color-palette"),{
+                margin: [40, 60, 60, 60],
+                callback: function(pdf) {
+                    pdf.save("MyColorPalette.pdf");
+                    togglePdfItemsHidden(true);
+                }
+            })
+        }
+
+    }
 
     return (
         <div className={colorPaletteOpen ? "my-color-palette-transition my-color-palette-opened" : "my-color-palette-transition my-color-palette-closed"}>
@@ -46,10 +65,32 @@ function MyColorPalette() {
                     ))}
 
                 </div>
+
                 <Button
-                    type="button"
+                    onClick={createPdf}
+                    type="primary"
                     text="export as pdf"
                 />
+                <div hidden={pdfItemsHidden} id="pdf-my-color-palette">
+                    <h1>My Color Palette</h1>
+                    <div className="wrapper-pdf-container">
+                    {colorPalette.map((hexColor) => (
+                        <div className="my-color-palette-color-item__inner-container">
+                            <div
+                                className="my-color-palette-color-item__color-block"
+                                style={{
+                                    backgroundColor: `${hexColor}`,
+                                }}
+                            >
+                            </div>
+                            <div className="my-color-palette-color-item__text-block">
+                                <p className="my-color-palette-text-block__hex-code">{hexColor}</p>
+                            </div>
+                        </div>
+                    ))}
+                    </div>
+
+                </div>
             </div>
         </div>
     );

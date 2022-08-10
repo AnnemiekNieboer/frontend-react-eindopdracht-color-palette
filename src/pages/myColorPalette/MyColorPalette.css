@@ -79,6 +79,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    overflow-x: hidden;
     overflow-y: scroll;
     height: 50vh;
 }
@@ -127,4 +128,16 @@
     left: 1.4em;
     cursor: pointer;
     z-index: 5;
+}
+
+/*---------My-color-palette-PDF--------------*/
+
+#pdf-my-color-palette h1 {
+    color: var(--main-font-color-dark);
+}
+
+.wrapper-pdf-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
