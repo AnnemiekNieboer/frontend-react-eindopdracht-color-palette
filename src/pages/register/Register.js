@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useRef} from 'react';
 import axios from "axios";
 import {useForm} from "react-hook-form";
 
@@ -14,7 +14,9 @@ function Register() {
 
     const history = useHistory();
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}, watch} = useForm({mode: "onChange"});
+    // const email = useRef({});
+    // email.current = watch("email")
 
     function submitRegister(data) {
         console.log(data)
@@ -66,10 +68,10 @@ function Register() {
                             placeholder="Enter your email"
                             {...register("email", {
                                 required: "Email cannot be empty",
-                                // validate: {
-                                //     value: (value) => value.includes("@"),
-                                //     message: 'Email needs to contain a "@"'
-                                // },
+                                pattern: {
+                                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                                    message: "Email address is not valid",
+                                }
                             })}
                         />
                         {errors.email && <p className="authorization__error">{errors.email.message}</p>}
