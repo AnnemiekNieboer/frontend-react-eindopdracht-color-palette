@@ -1,30 +1,29 @@
 import React, {useContext, useState} from 'react';
 import axios from 'axios';
+import { useForm } from "react-hook-form";
+
 import './Login.css';
 import Navigation from "../../components/navigation/Navigation";
 import Authorization from "../../components/authorization/Authorization";
 import {AuthContext} from "../../context/AuthContext";
 
 function Login() {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-
     const {login, endpoint} = useContext(AuthContext);
     const [error, toggleError] = useState(false);
 
-    function handleLogin(e) {
-        e.preventDefault(e)
-        console.log(username);
-        console.log(password);
-        makeLoginRequest()
+    const { register, handleSubmit } = useForm();
+
+    function handleLogin(data) {
+        console.log(data);
+        makeLoginRequest(data);
     }
 
-    async function makeLoginRequest() {
+    async function makeLoginRequest(data) {
         toggleError(false);
         try {
             const response = await axios.post(`${endpoint}api/auth/signin`, {
-                "username": username,
-                "password": password,
+                "username": data.username,
+                "password": data.password,
             })
             console.log(response);
             console.log(response.data.accessToken);
@@ -44,19 +43,38 @@ function Login() {
             </header>
             <main className="inner-container__reusable">
                 <Authorization
-                    onSubmitValue={handleLogin}
+                    onSubmitValue={handleSubmit(handleLogin)}
                     header="Login"
                     underlineTextPart1="New to My Color Palette?"
                     underlineLink="/register"
                     underlineLinkText="Register here"
                     underlineTextPart2="your new account"
                     buttonText="login"
-                    valueUsername={username}
-                    onChangeUsername={(e) => setUsername(e.target.value)}
-                    valuePassword={password}
-                    onChangePassword={(e) => setPassword(e.target.value)}
                     error={error && <span>Username/password invalid, try again or register a new account</span>}
-                />
+                >
+                    <label className="authorization__label" htmlFor="username">
+                        Username
+                        <input
+                            className="input-field__reusable authorization__input-field"
+                            type="text"
+                            id="username"
+                            placeholder="Enter your username"
+                            minLength={6}
+                            {...register("username")}
+                        />
+                    </label>
+                    <label className="authorization__label" htmlFor="password">
+                        Password
+                        <input
+                            className="input-field__reusable authorization__input-field"
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            minLength={6}
+                            {...register("password")}
+                        />
+                    </label>
+                </Authorization>
             </main>
         </div>
     );

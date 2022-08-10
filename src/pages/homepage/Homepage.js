@@ -270,7 +270,7 @@ function Homepage() {
                     {noSearch && <span>Use the search bar above, to find a nice color palette</span>}
                     {loading && <span>Loading...</span>}
                     {error && <span>Sorry, something went wrong with getting your results. Please try again later</span>}
-                    {noResults && <span>No results found for "{searchQuery}", try to search for "Gallery of honour" and see some cool results</span>}
+                    {noResults && <span>No results found for keyword: "{searchQuery ? searchQuery : "not filled in"}", color: "{colorQuery.hexColor ? colorQuery.hexColor : "all colors"}" and catalogue: "{catalogueQuery ? catalogueQuery : "all catalogues"}". Try to be less specific in your search or maybe try to search just for "Gallery of honour" and see some cool results</span>}
                     {paintingsData.map((paintingData) => {
                         return (
                             <PaintingTile

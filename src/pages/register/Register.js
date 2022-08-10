@@ -1,5 +1,7 @@
 import React, {useContext, useState} from 'react';
 import axios from "axios";
+import {useForm} from "react-hook-form";
+
 import './Register.css';
 import Navigation from "../../components/navigation/Navigation";
 import Authorization from "../../components/authorization/Authorization";
@@ -7,32 +9,27 @@ import {AuthContext} from "../../context/AuthContext";
 import {useHistory} from "react-router-dom";
 
 function Register() {
-    const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
-
-    const { endpoint } = useContext((AuthContext));
+    const {endpoint} = useContext((AuthContext));
     const [error, toggleError] = useState(false)
 
     const history = useHistory();
 
-    function submitRegister(e) {
-        e.preventDefault();
-        makeRegisterRequest();
+    const {register, handleSubmit, formState: {errors}} = useForm();
+
+    function submitRegister(data) {
+        console.log(data)
+        makeRegisterRequest(data)
         history.push("/login");
-        console.log(email);
-        console.log(userName);
-        console.log(password);
     }
 
     //Function for registering an account on the Novi educational backend
-    async function makeRegisterRequest() {
+    async function makeRegisterRequest(data) {
         toggleError(false);
         try {
             const response = await axios.post(`${endpoint}api/auth/signup`, {
-                "username": userName,
-                "email": email,
-                "password": password,
+                "username": data.username,
+                "email": data.email,
+                "password": data.password,
                 "role": ["user"],
             });
             console.log(response)
@@ -51,18 +48,15 @@ function Register() {
             </header>
             <main className="inner-container__reusable">
                 <Authorization
-                    onSubmitValue={submitRegister}
-                    header= "Register"
+                    onSubmitValue={handleSubmit(submitRegister)}
+                    header="Register"
                     underlineTextPart1="Do you already have a My Color Palette account? "
                     underlineLink="/login"
                     underlineLinkText="Login here"
                     buttonText="Register"
-                    valueUsername={userName}
-                    onChangeUsername={(e) => setUserName(e.target.value)}
-                    valuePassword={password}
-                    onChangePassword={(e) => setPassword(e.target.value)}
                     error={error && <span>This account already exist, please register with different credentials</span>}
                 >
+
                     <label className="authorization__label" htmlFor="email">
                         E-mail
                         <input
@@ -70,9 +64,49 @@ function Register() {
                             type="email"
                             id="email"
                             placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            {...register("email", {
+                                required: "Email cannot be empty",
+                                // validate: {
+                                //     value: (value) => value.includes("@"),
+                                //     message: 'Email needs to contain a "@"'
+                                // },
+                            })}
                         />
+                        {errors.email && <p className="authorization__error">{errors.email.message}</p>}
+                    </label>
+                    <label className="authorization__label" htmlFor="username">
+                        Username
+                        <input
+                            className="input-field__reusable authorization__input-field"
+                            type="text"
+                            id="username"
+                            placeholder="Enter your username"
+                            {...register("username", {
+                                required: "Username cannot be empty",
+                                minLength: {
+                                    value: 6,
+                                    message: "Use at least 6 characters for the username",
+                                }
+                            })}
+                        />
+                        {errors.username && <p className="authorization__error">{errors.username.message}</p>}
+                    </label>
+                    <label className="authorization__label" htmlFor="password">
+                        Password
+                        <input
+                            className="input-field__reusable authorization__input-field"
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            {...register("password", {
+                                required: "Password cannot be empty",
+                                minLength: {
+                                    value: 6,
+                                    message: "Use at least 6 characters for the password",
+                                }
+                            })}
+                        />
+                        {errors.password && <p className="authorization__error">{errors.password.message}</p>}
                     </label>
                 </Authorization>
             </main>
