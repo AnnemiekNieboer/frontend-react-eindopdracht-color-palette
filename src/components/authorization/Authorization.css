@@ -40,3 +40,11 @@
 .authorization__error {
     color: red;
 }
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+    .authorization__input-field {
+        width: 60%;
+    }
+}

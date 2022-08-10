@@ -141,3 +141,13 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+    .my-color-palette__container {
+        width: 30vw;
+    }
+}
+
+

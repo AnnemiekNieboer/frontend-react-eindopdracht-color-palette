@@ -4,7 +4,7 @@ import Navigation from "../navigation/Navigation";
 
 function Header({className, header, text, children}) {
     return (
-        <div className="outer-container__reusable header">
+        <div className="outer-container__reusable header header-background-image__homepage">
             <div className={className}>
                 <Navigation/>
                 <section className="header__text-section">

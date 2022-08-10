@@ -86,5 +86,29 @@ h5, label {
 }
 
 main {
+  color: var(--main-font-color-light);
   background-color: var(--main-background-color-dark);
+}
+
+body {
+  background-color: var(--main-background-color-dark);
+}
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+  .inner-container__reusable {
+    flex-basis: 800px;
+    width: 800px;
+  }
+
+  .input-field__reusable {
+    width: 400px;
+  }
+
+/*  ------fonts-------*/
+
+  h1 {
+    font-size: 3.8em;
+  }
 }

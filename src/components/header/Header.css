@@ -18,3 +18,11 @@
     line-height: 1.7em;
     margin: 1em 0;
 }
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+    .header-text-section__intro {
+        font-size: 1.1em;
+    }
+}

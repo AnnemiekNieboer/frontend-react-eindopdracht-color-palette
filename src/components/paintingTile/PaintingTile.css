@@ -81,3 +81,16 @@
 .painting-tile__link:visited{
     color: var(--main-font-color-dark);
 }
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+    .painting-tile {
+        height: 630px;
+        width: 100%;
+    }
+
+    .painting-tile-image-container__image {
+        height: 450px;
+    }
+}

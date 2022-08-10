@@ -64,7 +64,7 @@ function Homepage() {
     return (
         <div className="outer-container__reusable">
             <Header
-                className="header-background-image__homepage inner-container__reusable"
+                className="inner-container__reusable"
                 header="Learn from the masters, and become one"
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
@@ -245,7 +245,7 @@ function Homepage() {
                             <label htmlFor="search-by-catalogue-title">
                                 Search by catalogue title
                                 <select
-                                    className="input-field__reusable"
+                                    className="input-field__reusable input-field__select-catalogue"
                                     id="search-by-catalogue-title"
                                     value={catalogueQuery}
                                     onChange={(e) => setCatalogueQuery(e.target.value)}
