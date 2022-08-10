@@ -1,6 +1,6 @@
 .my-color-palette__container {
     position: fixed;
-    top: 10vh;
+    top: 5vh;
     right: 0;
     width: 88vw;
     min-height: 80vh;
@@ -24,7 +24,6 @@
     display: none;
 }
 
-
 /*----------Closing button----------*/
 
 .my-color-palette__closing-button::after{
@@ -34,7 +33,7 @@
     width: 2rem;
     height: 2rem;
     position: fixed;
-    top: 10vh;
+    top: 5vh;
     right: 1vw;
     cursor: pointer;
 }
@@ -80,6 +79,8 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    overflow-y: scroll;
+    height: 50vh;
 }
 
 .my-color-palette-color-item__inner-container {
