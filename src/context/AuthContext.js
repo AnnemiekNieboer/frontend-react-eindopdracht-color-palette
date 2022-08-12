@@ -20,11 +20,9 @@ function AuthContextProvider({children}) {
     // Function to check if there is a token in the local storage and to check if it is expired or not
     useEffect(() => {
         const token = localStorage.getItem("token");
-        console.log(token);
 
         if (token != null) {
             const decodedToken = jwt_decode(token);
-            console.log(decodedToken);
 
             if (decodedToken.exp > new Date() / 1000) {
                 //Function to fetch user login data when token is not expired
@@ -46,7 +44,6 @@ function AuthContextProvider({children}) {
                             },
                             status: "done"
                         })
-                        console.log("user token is available and valid");
                     } catch (e) {
                         toggleAuth({
                             ...auth,
@@ -59,14 +56,12 @@ function AuthContextProvider({children}) {
 
                 getUserData();
             } else {
-                console.log("login is expired")
                 toggleAuth({
                     ...auth,
                     status: "done",
                 });
             }
         } else {
-            console.log("No login token found")
             toggleAuth({
                 ...auth,
                 status: "done",
@@ -77,8 +72,6 @@ function AuthContextProvider({children}) {
     // Function for login in to My Color Palette
     function login(token) {
         const decodedToken = jwt_decode(token);
-        console.log(decodedToken);
-
         localStorage.setItem("token", token);
 
         toggleAuth({
@@ -90,14 +83,11 @@ function AuthContextProvider({children}) {
             status: "done",
         });
 
-        console.log("User is logged in");
         history.push("/");
-
     }
 
     // Function for logging out of My Color Palette
     function logout() {
-        console.log("User is logged out");
         toggleAuth({
             isAuth: false,
             user: null,

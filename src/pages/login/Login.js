@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import axios from 'axios';
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 
 import './Login.css';
 import Navigation from "../../components/navigation/Navigation";
@@ -22,10 +22,7 @@ function Login() {
                 "username": data.username,
                 "password": data.password,
             })
-            console.log(response);
-            console.log(response.data.accessToken);
             login(response.data.accessToken);
-
         } catch (e) {
             console.error(e)
             toggleError(true);

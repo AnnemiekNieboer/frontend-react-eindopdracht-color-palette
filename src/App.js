@@ -28,9 +28,6 @@ function App() {
                 <Route path="/register">
                     <Register/>
                 </Route>
-                {/*<Route path="/my-color-palette">*/}
-                {/*    <MyColorPalette/>*/}
-                {/*</Route>*/}
             </Switch>
             <Footer/>
         </>

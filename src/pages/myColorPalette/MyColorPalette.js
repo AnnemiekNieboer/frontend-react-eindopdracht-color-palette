@@ -16,13 +16,10 @@ function MyColorPalette() {
     const [colorPaletteIsEmpty, toggleColorPaletteIsEmpty] = useState(true)
     const [pdfLoading, togglePdfLoading] = useState(false);
 
-    console.log(isAuth);
-
     //Check if the color palette is empty and if so, you will see a message in the color palette
     useEffect(() => {
         if (colorPalette.length > 0) {
             toggleColorPaletteIsEmpty(false);
-            console.log(colorPaletteIsEmpty);
         } else toggleColorPaletteIsEmpty(true);
     }, [colorPalette, colorPaletteIsEmpty]);
 
@@ -78,7 +75,6 @@ function MyColorPalette() {
                             </div>
                         </div>
                     ))}
-
                 </div>
                 {isAuth ?
                     <Button

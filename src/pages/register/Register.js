@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
-
 import './Register.css';
 import Navigation from "../../components/navigation/Navigation";
 import Authorization from "../../components/authorization/Authorization";
@@ -18,7 +17,6 @@ function Register() {
     const {register, handleSubmit, formState: {errors}} = useForm({mode: "onChange"});
 
     function submitRegister(data) {
-        console.log(data)
         makeRegisterRequest(data)
         history.push("/login");
     }
@@ -27,14 +25,12 @@ function Register() {
     async function makeRegisterRequest(data) {
         toggleError(false);
         try {
-            const response = await axios.post(`${endpoint}api/auth/signup`, {
+            await axios.post(`${endpoint}api/auth/signup`, {
                 "username": data.username,
                 "email": data.email,
                 "password": data.password,
                 "role": ["user"],
             });
-            console.log(response)
-
         } catch (e) {
             console.error(e)
             toggleError(true)

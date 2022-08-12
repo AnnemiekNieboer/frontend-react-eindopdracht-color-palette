@@ -1,4 +1,4 @@
-import React, {useRef, useState, useContext} from "react";
+import React, {useRef, useState} from "react";
 import axios from "axios";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
@@ -7,7 +7,6 @@ import PaintingTile from "../../components/paintingTile/PaintingTile";
 import MyColorPaletteButton from "../../components/myColorPaletteButton/MyColorPaletteButton";
 import Checkbox from "../../components/checkbox/Checkbox";
 import goUpIcon from "../../assets/icons/go-up.png"
-import {PaletteContext} from "../../context/PaletteContext";
 import handleRef from "../../helpers/handleRef";
 
 function Homepage() {
@@ -24,17 +23,11 @@ function Homepage() {
     const [noSearch, toggleNoSearch] = useState(true);
     const [paintingsData, fetchPaintingsData] = useState([])
 
-    const { colorPalette } = useContext(PaletteContext)
-    console.log(colorPalette);
-
     //Function that is fired when you submit the form
     function submitForm(e) {
         e.preventDefault();
         getPaintingData();
         handleRef(refResults);
-        console.log(searchQuery);
-        console.log(colorQuery.hexColor);
-        console.log(catalogueQuery);
 
         async function getPaintingData() {
             toggleError(false);
@@ -51,7 +44,6 @@ function Homepage() {
                         cctitle: catalogueQuery ? catalogueQuery : null,
                     }
                 });
-                console.log(result.data.artObjects);
                 fetchPaintingsData(result.data.artObjects);
                 if (result.data.artObjects.length === 0) toggleNoResults(true);
             } catch (e) {
@@ -70,7 +62,7 @@ function Homepage() {
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
                 <Button
-                    onClick= {() => handleRef(refSearch)}
+                    onClick={() => handleRef(refSearch)}
                     text="search now"
                     type="button"
                 />
@@ -254,8 +246,12 @@ function Homepage() {
                                     <option value="">all catalogues</option>
                                     <option value="(under construction) Dutch Paintings I">Dutch paintings</option>
                                     <option value="Early Netherlandish Paintings">Early Netherlandish Paintings</option>
-                                    <option value="Flemish Paintings in the Rijksmuseum">Flemish Paintings in the Rijksmuseum</option>
-                                    <option value="Dutch Paintings of the Seventeenth Century in the Rijksmuseum">Dutch Paintings of the Seventeenth Century in the Rijksmuseum</option>
+                                    <option value="Flemish Paintings in the Rijksmuseum">Flemish Paintings in the
+                                        Rijksmuseum
+                                    </option>
+                                    <option value="Dutch Paintings of the Seventeenth Century in the Rijksmuseum">Dutch
+                                        Paintings of the Seventeenth Century in the Rijksmuseum
+                                    </option>
                                 </select>
                             </label>
                         </fieldset>
@@ -270,18 +266,21 @@ function Homepage() {
                     <h2>Results</h2>
                     {noSearch && <span>Use the search bar above, to find a nice color palette</span>}
                     {loading && <span>Loading...</span>}
-                    {error && <span>Sorry, something went wrong with getting your results. Please try again later</span>}
-                    {noResults && <span>No results found for keyword: "{searchQuery ? searchQuery : "not filled in"}", color: "{colorQuery.hexColor ? colorQuery.hexColor : "all colors"}" and catalogue: "{catalogueQuery ? catalogueQuery : "all catalogues"}". Try to be less specific in your search or maybe try to search just for "Gallery of honour" and see some cool results</span>}
+                    {error &&
+                        <span>Sorry, something went wrong with getting your results. Please try again later</span>}
+                    {noResults &&
+                        <span>No results found for keyword: "{searchQuery ? searchQuery : "not filled in"}", color: "{colorQuery.hexColor ? colorQuery.hexColor : "all colors"}" and catalogue: "{catalogueQuery ? catalogueQuery : "all catalogues"}". Try to be less specific in your search or maybe try to search just for "Gallery of honour" and see some cool results</span>}
                     {paintingsData.map((paintingData) => {
                         return (
                             <PaintingTile
-                            objectNumber={paintingData.objectNumber}
-                            key={paintingData.id}
+                                objectNumber={paintingData.objectNumber}
+                                key={paintingData.id}
                             />
                         )
                     })}
                 </section>
-                <img alt="go-to-top-of-search-section" src={goUpIcon} onClick={() => handleRef(refSearch)} className="search-result__go-up-icon"/>
+                <img alt="go-to-top-of-search-section" src={goUpIcon} onClick={() => handleRef(refSearch)}
+                     className="search-result__go-up-icon"/>
             </main>
         </div>
     );

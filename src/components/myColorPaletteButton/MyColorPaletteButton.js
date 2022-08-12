@@ -5,14 +5,13 @@ import {PaletteContext} from "../../context/PaletteContext";
 
 //Component for the My Color Palette button, fixed on the side of the homepage
 function MyColorPaletteButton() {
-    const{ colorPaletteOpen, setColorPaletteOpen } = useContext(PaletteContext);
-    console.log(colorPaletteOpen);
+    const {setColorPaletteOpen} = useContext(PaletteContext);
 
     return (
-            <button onClick={() => setColorPaletteOpen(true)} className="button__reusable my-color-palette__open-button">
-                <img className="my-color-palette-button__icon" src={myColorPaletteIcon}/>
-                my palette
-            </button>
+        <button onClick={() => setColorPaletteOpen(true)} className="button__reusable my-color-palette__open-button">
+            <img alt="" className="my-color-palette-button__icon" src={myColorPaletteIcon}/>
+            my palette
+        </button>
     );
 }
 
