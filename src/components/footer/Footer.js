@@ -20,13 +20,13 @@ function Footer() {
                         <h3 className="footer__heading">Social</h3>
                         <div className="footer-social-section__icons">
                             <a href="/">
-                                <img src={instagramLogo}/>
+                                <img alt="link to instagram" src={instagramLogo}/>
                             </a>
                             <a href="/">
-                                <img src={linkedinLogo}/>
+                                <img alt="link to LinkedIn" src={linkedinLogo}/>
                             </a>
                             <a href="/">
-                                <img src={tiktokLogo}/>
+                                <img alt="link to TikTok" src={tiktokLogo}/>
                             </a>
                         </div>
                     </div>

@@ -91,7 +91,7 @@ function MyColorPalette() {
                     </Link>
                 }
                 {pdfLoading && <p>pdf is loading...</p>}
-                <div hidden={pdfItemsHidden} id="pdf-my-color-palette">
+                <div aria-label="code to create the pdf" hidden={pdfItemsHidden} id="pdf-my-color-palette">
                     <h1>My Color Palette</h1>
                     <div className="wrapper-pdf-container">
                         {colorPalette.map((hexColor) => (

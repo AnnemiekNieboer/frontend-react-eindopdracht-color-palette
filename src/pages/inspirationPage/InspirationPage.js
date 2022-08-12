@@ -35,6 +35,7 @@ function InspirationPage() {
                 </TextBlock>
                 <ImageBlock
                     src={placeholderImage}
+                    alt="placeholder image"
                 />
                 <TextBlock
                     title="Title lorem ipsum"
