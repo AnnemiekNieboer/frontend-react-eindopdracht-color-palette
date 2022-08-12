@@ -50,11 +50,7 @@ function MyColorPalette() {
                 <h4 className="my-color-palette__under-title">Selected colors</h4>
 
                 <div className="my-color-palette-color-items__outer-container">
-                    {colorPaletteIsEmpty ?
-                        <p>When you add colors to your color palette, you will find them here</p>
-                        :
-                        ""
-                    }
+                    {colorPaletteIsEmpty && <p>When you add colors to your color palette, you will find them here</p>}
                     {colorPalette.map((hexColor) => (
                         <div className="my-color-palette-color-item__inner-container">
                             <div
@@ -96,11 +92,7 @@ function MyColorPalette() {
                         />
                     </Link>
                 }
-                {pdfLoading ?
-                    <p>pdf is loading...</p>
-                :
-                ""
-                }
+                {pdfLoading && <p>pdf is loading...</p>}
                 <div hidden={pdfItemsHidden} id="pdf-my-color-palette">
                     <h1>My Color Palette</h1>
                     <div className="wrapper-pdf-container">
