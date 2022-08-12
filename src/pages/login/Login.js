@@ -11,13 +11,9 @@ function Login() {
     const {login, endpoint} = useContext(AuthContext);
     const [error, toggleError] = useState(false);
 
-    const { register, handleSubmit } = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm({mode: "onChange"});
 
-    function handleLogin(data) {
-        console.log(data);
-        makeLoginRequest(data);
-    }
-
+    //Function that will handle the login request
     async function makeLoginRequest(data) {
         toggleError(false);
         try {
@@ -43,7 +39,7 @@ function Login() {
             </header>
             <main className="inner-container__reusable">
                 <Authorization
-                    onSubmitValue={handleSubmit(handleLogin)}
+                    onSubmitValue={handleSubmit(makeLoginRequest)}
                     header="Login"
                     underlineTextPart1="New to My Color Palette?"
                     underlineLink="/register"
@@ -59,9 +55,11 @@ function Login() {
                             type="text"
                             id="username"
                             placeholder="Enter your username"
-                            minLength={6}
-                            {...register("username")}
+                            {...register("username", {
+                                required: "Username cannot be empty",
+                            })}
                         />
+                        {errors.username && <p className="authorization__error">{errors.username.message}</p>}
                     </label>
                     <label className="authorization__label" htmlFor="password">
                         Password
@@ -70,9 +68,11 @@ function Login() {
                             type="password"
                             id="password"
                             placeholder="Enter your password"
-                            minLength={6}
-                            {...register("password")}
+                            {...register("password", {
+                                required: "Password cannot be empty",
+                            })}
                         />
+                        {errors.password && <p className="authorization__error">{errors.password.message}</p>}
                     </label>
                 </Authorization>
             </main>
