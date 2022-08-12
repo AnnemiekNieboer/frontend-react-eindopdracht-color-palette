@@ -52,7 +52,7 @@ function MyColorPalette() {
                 <div className="my-color-palette-color-items__outer-container">
                     {colorPaletteIsEmpty && <p>When you add colors to your color palette, you will find them here</p>}
                     {colorPalette.map((hexColor) => (
-                        <div className="my-color-palette-color-item__inner-container">
+                        <div key={hexColor} className="my-color-palette-color-item__inner-container">
                             <div
                                 className="my-color-palette-color-item__color-block"
                                 style={{
@@ -97,7 +97,7 @@ function MyColorPalette() {
                     <h1>My Color Palette</h1>
                     <div className="wrapper-pdf-container">
                         {colorPalette.map((hexColor) => (
-                            <div className="my-color-palette-color-item__inner-container">
+                            <div key={hexColor} className="my-color-palette-color-item__inner-container">
                                 <div
                                     className="my-color-palette-color-item__color-block"
                                     style={{
