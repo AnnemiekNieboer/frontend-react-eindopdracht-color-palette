@@ -1,3 +1,17 @@
+.color-list__list-item {
+    width: 2.3em;
+    height: 2.3em;
+    border: 1px solid var(--main-background-color-dark);
+    border-radius: 10px;
+    list-style: none;
+    transition: box-shadow 300ms linear;
+    cursor: pointer;
+}
+
+.color-list__list-item:hover{
+    box-shadow: var(--main-shadow-color-dark) 0 3px 8px;
+}
+
 .color-added-to-palette {
     animation: color-added 200ms linear;
 }

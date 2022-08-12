@@ -37,7 +37,7 @@
     25% { transform: scale(1.05);}
     50% {transform: scale(1.10);}
     75% {transform: scale(1.15);}
-    100% {transform: scale(1.20);}
+    100% {transform: scale(1.10);}
 }
 
 .painting-tile__attribute-section {
@@ -57,31 +57,6 @@
     flex-direction: row;
     gap: 0.5em;
     padding: 5px 0 2px 0;
-}
-
-.color-list__list-item {
-    width: 2.3em;
-    height: 2.3em;
-    border: 1px solid var(--main-background-color-dark);
-    border-radius: 10px;
-    list-style: none;
-    transition: box-shadow 300ms linear;
-    cursor: pointer;
-}
-
-.color-list__list-item:hover{
-    box-shadow: var(--main-shadow-color-dark) 0 3px 8px;
-}
-
-.color-added-to-palette {
-    animation: color-added 200ms linear;
-}
-
-@keyframes color-added {
-    25% { transform: scale(0.95);}
-    50% {transform: scale(0.90);}
-    75% {transform: scale(0.85);}
-    100% {transform: scale(0.80);}
 }
 
 /*----------fonts------------*/
