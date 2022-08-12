@@ -1,9 +1,12 @@
 import React, {useEffect, useState, useContext} from "react";
 import axios from "axios";
 import "./PaintingTile.css"
+// import {saveAs} from "file-saver";
 import {Link} from "react-router-dom";
 import ColorsPaintingTile from "./ColorsPaintingTile";
 import {PaletteContext} from "../../context/PaletteContext";
+import downloadImageIcon from "../../assets/icons/download-icon.png";
+import downloadImageOfArtObject from "../../helpers/downloadImageOfArtObject";
 
 //Component function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
@@ -14,6 +17,10 @@ function PaintingTile({objectNumber, key}) {
     const [colorsOfPainting, fetchColorsOfPainting] = useState([]);
 
     const {addHexColorFunction} = useContext(PaletteContext);
+
+    // const downloadImageOfArtObject = (image) => {
+    //     saveAs(image);
+    // }
 
     useEffect(() => {
         async function getPaintingDetail() {
@@ -39,6 +46,9 @@ function PaintingTile({objectNumber, key}) {
                 <div className="painting-tile__image-container">
                     <img className="painting-tile-image-container__image" src={imageUrlOfPainting}
                          alt={titleOfPainting}/>
+                    <button title="Download image of art object" onClick={() => downloadImageOfArtObject(imageUrlOfPainting, titleOfPainting)}>
+                        <img className="painting-tile__download-image" src={downloadImageIcon} alt="download image of art object"/>
+                    </button>
                 </div>
                 <div className="painting-tile__attribute-section">
                     <div className="attribute-section__text">
