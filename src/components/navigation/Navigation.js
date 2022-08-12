@@ -1,5 +1,6 @@
 import React, {useContext, useState} from "react";
 import './Navigation.css';
+import {useHistory} from "react-router-dom";
 import Hamburger from "./Hamburger";
 import {NavLink} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
@@ -8,7 +9,8 @@ import LoginLogoutButton from "../loginLogoutButton/LoginLogoutButton";
 //Navigation component
 function Navigation() {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
-    const {isAuth, logout, goToLoginPage} = useContext(AuthContext);
+    const {isAuth, logout} = useContext(AuthContext);
+    const history = useHistory();
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
@@ -34,7 +36,7 @@ function Navigation() {
                         :
                         <LoginLogoutButton
                             text="login"
-                            onClick={goToLoginPage}
+                            onClick={() => history.push("/login")}
                         />
                     }
                 </li>
