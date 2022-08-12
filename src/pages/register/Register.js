@@ -1,4 +1,4 @@
-import React, {useContext, useState, useRef} from 'react';
+import React, {useContext, useState} from 'react';
 import axios from "axios";
 import {useForm} from "react-hook-form";
 
@@ -14,9 +14,7 @@ function Register() {
 
     const history = useHistory();
 
-    const {register, handleSubmit, formState: {errors}, watch} = useForm({mode: "onChange"});
-    // const email = useRef({});
-    // email.current = watch("email")
+    const {register, handleSubmit, formState: {errors}} = useForm({mode: "onChange"});
 
     function submitRegister(data) {
         console.log(data)
