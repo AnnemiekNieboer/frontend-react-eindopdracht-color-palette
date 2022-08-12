@@ -68,6 +68,7 @@ _The following dependencies, with the minimum version mentioned, are used:_
 - "@testing-library/react": "^13.3.0"
 - "@testing-library/user-event": "^13.5.0"
 - "axios": "^0.27.2"
+- "file-saver": "^2.0.5"
 - "html2canvas": "^1.4.1"
 - "jspdf": "^2.5.1"
 - "jwt-decode": "^3.1.2"
