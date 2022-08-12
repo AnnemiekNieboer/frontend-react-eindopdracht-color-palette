@@ -1,13 +1,14 @@
 import React, {useContext, useState} from 'react';
 import axios from "axios";
 import {useForm} from "react-hook-form";
+import {useHistory} from "react-router-dom";
 
 import './Register.css';
 import Navigation from "../../components/navigation/Navigation";
 import Authorization from "../../components/authorization/Authorization";
 import {AuthContext} from "../../context/AuthContext";
-import {useHistory} from "react-router-dom";
 
+//Page for registering a user
 function Register() {
     const {endpoint} = useContext((AuthContext));
     const [error, toggleError] = useState(false)

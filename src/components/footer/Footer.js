@@ -5,6 +5,7 @@ import instagramLogo from "../../assets/icons/instagram-logo.png";
 import linkedinLogo from "../../assets/icons/linkedin-logo.png";
 import tiktokLogo from "../../assets/icons/tik-tok-logo.png";
 
+//Component for footer
 function Footer() {
     return (
         <footer className="outer-container__reusable">

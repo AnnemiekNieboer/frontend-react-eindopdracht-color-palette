@@ -5,6 +5,7 @@ import {NavLink} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import LoginLogoutButton from "../loginLogoutButton/LoginLogoutButton";
 
+//Navigation component
 function Navigation() {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
     const {isAuth, logout, goToLoginPage} = useContext(AuthContext);

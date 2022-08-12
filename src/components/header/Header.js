@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css"
 import Navigation from "../navigation/Navigation";
 
+//Component for header
 function Header({header, text, children}) {
     return (
         <div className="outer-container__reusable header header-background-image__homepage">

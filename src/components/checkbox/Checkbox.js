@@ -1,9 +1,8 @@
 import React from 'react';
 import "./Checkbox.css";
 
+//Component for the checkboxes in the search query at the homepage
 function Checkbox({className, labelName, value, checked, colorFunction, hexColor}) {
-
-
     return (
         <label
             className={className}

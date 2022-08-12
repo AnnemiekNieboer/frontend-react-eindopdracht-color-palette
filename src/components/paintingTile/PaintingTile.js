@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import ColorsPaintingTile from "./ColorsPaintingTile";
 import {PaletteContext} from "../../context/PaletteContext";
 
-//function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
+//Component function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
 function PaintingTile({objectNumber, key}) {
     const [titleOfPainting, fetchTitleOfPainting] = useState("");
     const [artistOfPainting, fetchArtistOfPainting] = useState("");
@@ -20,19 +20,15 @@ function PaintingTile({objectNumber, key}) {
 
             try {
                 const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=${process.env.REACT_APP_API_KEY}`);
-                console.log(result);
                 fetchTitleOfPainting(result.data.artObject.title);
                 fetchArtistOfPainting(result.data.artObject.principalMaker);
                 fetchDateOfPainting(result.data.artObject.dating.presentingDate);
                 fetchImageUrlOfPainting(result.data.artObject.webImage.url);
                 fetchColorsOfPainting(result.data.artObject.colors);
-                console.log(colorsOfPainting);
-                console.log(colorsOfPainting.length);
             } catch (e) {
                 console.error(e)
             }
         }
-
         getPaintingDetail();
     }, [objectNumber]);
 

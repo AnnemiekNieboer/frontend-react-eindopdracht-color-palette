@@ -2,6 +2,7 @@ import React from "react";
 import "./LoginLogoutButton.css";
 import accountIcon from "../../assets/icons/artist.png";
 
+//Component for login/logout button in menu
 function LoginLogoutButton({onClick, text}) {
     return (
         <button

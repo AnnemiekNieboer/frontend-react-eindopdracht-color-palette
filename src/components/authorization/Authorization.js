@@ -3,9 +3,8 @@ import "./Authorization.css";
 import {Link} from "react-router-dom";
 import Button from "../button/Button";
 
+//Component for login and register
 function Authorization({onSubmitValue, header, children, underlineTextPart1, underlineLink, underlineLinkText, underlineTextPart2, buttonText, error}) {
-
-
     return (
         <div className="authorization__container">
             <h2>My Color Palette</h2>

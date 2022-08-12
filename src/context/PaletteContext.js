@@ -3,6 +3,7 @@ import React, {createContext, useState} from "react";
 
 export const PaletteContext = createContext({});
 
+//Context for storing and handeling the colors of My Color Palette
 function PaletteContextProvider({children}) {
     const [colorPaletteHexCodes, setColorPaletteHexcodes] = useState([])
     const [colorPaletteOpen, setColorPaletteOpen] = useState(false);
@@ -16,7 +17,6 @@ function PaletteContextProvider({children}) {
             return element !== removeVal;
         }))
     }
-
 
     const data = {
         colorPalette: colorPaletteHexCodes,

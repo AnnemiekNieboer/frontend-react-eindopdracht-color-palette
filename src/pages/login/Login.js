@@ -7,6 +7,7 @@ import Navigation from "../../components/navigation/Navigation";
 import Authorization from "../../components/authorization/Authorization";
 import {AuthContext} from "../../context/AuthContext";
 
+//Page to login a user to the Novi educational backend
 function Login() {
     const {login, endpoint} = useContext(AuthContext);
     const [error, toggleError] = useState(false);

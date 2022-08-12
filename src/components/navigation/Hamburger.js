@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hamburger.css"
 
+//Hamburger menu component
 function Hamburger({isOpen}) {
     return (
         <div className="hamburger">

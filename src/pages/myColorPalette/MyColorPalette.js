@@ -1,12 +1,14 @@
 import React, {useContext, useEffect, useState} from "react";
-import {jsPDF} from "jspdf";
 import "./MyColorPalette.css";
-import {Link} from "react-router-dom";
-import Button from "../../components/button/Button";
+import {jsPDF} from "jspdf";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {Link} from "react-router-dom";
+
+import Button from "../../components/button/Button";
 import {PaletteContext} from "../../context/PaletteContext";
 import {AuthContext} from "../../context/AuthContext";
 
+//The My Color Palette page, shown as an overlay at the homepage
 function MyColorPalette() {
     const {colorPalette, removeHexColorFunction, colorPaletteOpen, setColorPaletteOpen} = useContext(PaletteContext)
     const {isAuth} = useContext(AuthContext);

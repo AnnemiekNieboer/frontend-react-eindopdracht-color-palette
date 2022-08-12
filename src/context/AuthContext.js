@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 
 export const AuthContext = createContext(false);
 
+//Context for handeling the authorization in the whole application (register and login)
 function AuthContextProvider({children}) {
     const endpoint = "https://frontend-educational-backend.herokuapp.com/";
 
@@ -16,11 +17,6 @@ function AuthContextProvider({children}) {
 
     const history = useHistory();
 
-    // Function used on multiple places to go to login page
-    function goToLoginPage() {
-        history.push("/login")
-    }
-
     // Function to check if there is a token in the local storage and to check if it is expired or not
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -30,7 +26,7 @@ function AuthContextProvider({children}) {
             const decodedToken = jwt_decode(token);
             console.log(decodedToken);
 
-            if (decodedToken.exp > new Date()/1000) {
+            if (decodedToken.exp > new Date() / 1000) {
                 //Function to fetch user login data when token is not expired
                 async function getUserData() {
                     try {
@@ -60,6 +56,7 @@ function AuthContextProvider({children}) {
                         localStorage.clear();
                     }
                 }
+
                 getUserData();
             } else {
                 console.log("login is expired")
@@ -115,7 +112,6 @@ function AuthContextProvider({children}) {
         endpoint: endpoint,
         login: login,
         logout: logout,
-        goToLoginPage: goToLoginPage,
     }
 
     return (
@@ -125,7 +121,6 @@ function AuthContextProvider({children}) {
             {auth.status === 'error' && <p>Something went wrong, please refresh the page</p>}
         </AuthContext.Provider>
     )
-
 }
 
 export default AuthContextProvider;
