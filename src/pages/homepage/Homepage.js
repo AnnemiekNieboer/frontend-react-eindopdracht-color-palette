@@ -8,6 +8,7 @@ import MyColorPaletteButton from "../../components/myColorPaletteButton/MyColorP
 import Checkbox from "../../components/checkbox/Checkbox";
 import goUpIcon from "../../assets/icons/go-up.png"
 import {PaletteContext} from "../../context/PaletteContext";
+import handleRef from "../../helpers/handleRef";
 
 function Homepage() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -30,7 +31,7 @@ function Homepage() {
     function submitForm(e) {
         e.preventDefault();
         getPaintingData();
-        refResults.current?.scrollIntoView({behavior: "smooth"})
+        handleRef(refResults);
         console.log(searchQuery);
         console.log(colorQuery.hexColor);
         console.log(catalogueQuery);
@@ -69,7 +70,7 @@ function Homepage() {
                 text="Be inspired and challenged by the color palette of your favorite Rijksmuseum artist and maybe you will develop into the new Rembrandt"
             >
                 <Button
-                    onClick= {() => refSearch.current?.scrollIntoView({behavior: "smooth"})}
+                    onClick= {() => handleRef(refSearch)}
                     text="search now"
                     type="button"
                 />
@@ -280,7 +281,7 @@ function Homepage() {
                         )
                     })}
                 </section>
-                <img alt="go-to-top-of-search-section" src={goUpIcon} onClick={() => refSearch.current?.scrollIntoView({behavior: "smooth"})} className="search-result__go-up-icon"/>
+                <img alt="go-to-top-of-search-section" src={goUpIcon} onClick={() => handleRef(refSearch)} className="search-result__go-up-icon"/>
             </main>
         </div>
     );

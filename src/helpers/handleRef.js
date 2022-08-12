@@ -1,4 +1,4 @@
-// const handleRef = (ref) => {
-//     ref.current?.scrollIntoView({behavior: "smooth"})};
-//
-// export default handleRef;
+const handleRef = (ref) => {
+    ref.current?.scrollIntoView({behavior: "smooth"})};
+
+export default handleRef;
