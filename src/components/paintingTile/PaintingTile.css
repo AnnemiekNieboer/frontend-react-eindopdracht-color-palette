@@ -21,10 +21,14 @@
     border-radius: 10px 10px 0 0;
 }
 
+.painting-tile__download-image-button {
+    border: none;
+}
+
 .painting-tile__download-image {
     position: absolute;
     width: 2em;
-    bottom: 2.3em;
+    bottom: 1em;
     right: 0.5em;
     cursor: pointer;
 }
