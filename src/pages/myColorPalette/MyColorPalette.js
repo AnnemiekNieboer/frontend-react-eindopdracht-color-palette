@@ -69,7 +69,7 @@ function MyColorPalette() {
                                             #code</Link>
                                     </CopyToClipboard>
                                     :
-                                    <Link to="/login" className="my-color-palette-text-block__hex-code-link">login to
+                                    <Link onClick={() => setColorPaletteOpen(false)} to="/login" className="my-color-palette-text-block__hex-code-link">login to
                                         copy #code</Link>
                                 }
                             </div>
@@ -83,7 +83,7 @@ function MyColorPalette() {
                         text="export as pdf"
                     />
                     :
-                    <Link to="/login">
+                    <Link to="/login" onClick={() => setColorPaletteOpen(false)}>
                         <Button
                             type="primary"
                             text="login to export as pdf"
