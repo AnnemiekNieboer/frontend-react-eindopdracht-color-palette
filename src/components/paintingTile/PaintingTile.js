@@ -61,6 +61,7 @@ function PaintingTile({objectNumber, key}) {
                             {colorsOfPainting.map(({hex}) => (
                                 <ColorsPaintingTile
                                     hex={hex}
+                                    key={hex}
                                 />
                             ))
                             }
