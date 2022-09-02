@@ -47,7 +47,11 @@ Be inspired and challenged by the color palette of your favorite artist, and may
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Step 1: installing Node.js and npm**  
+**Step 1: installing an IDE (Integrated Development Environment)**
+In order to open, use or modify the application, you must have an IDE installed on your computer. The application is built in the WebStorm IDE, but feel free to use a comparable IDE of your choice.
+
+
+**Step 2: installing Node.js and npm**  
 Before you start, you will need to have Node.js and npm installed on your system. Check [this](https://nodejs.org/en/download/) website to download and install the latest version. This project is set up with Node.js v16.15.0 and npm v8.13.1. Check if Node.js and npm are installed on your system and with what version, by running the following commands on the command line:
 
 `node -v
@@ -56,7 +60,7 @@ Before you start, you will need to have Node.js and npm installed on your system
 `npm -v
 `
 
-**Step 2: installing dependencies**  
+**Step 3: installing dependencies**  
 
 All the dependencies are mentioned in the package.json file. Install them all at once by running the following command on the command line:
 
@@ -80,7 +84,7 @@ _The following dependencies, with the minimum version mentioned, are used:_
 - "react-scripts": "5.0.1"
 - "web-vitals": "^2.1.4"
 
-**Step 3: Use of API from Rijksmuseum**  
+**Step 4: Use of API from Rijksmuseum**  
 In this project the 'Rijks Data' API of the Rijksmuseum is used. For the full documentation of this API, check the website of the [Rijksmuseum API](https://data.rijksmuseum.nl/object-metadata/api/).
 
 **important!** Before you can use this project by yourself, you first need to obtain an API key by registering for a [Rijksstudio](https://www.rijksmuseum.nl/en/rijksstudio) account. You will be given a key instantly upon request, which you can find at the advanced settings of your Rijksstudio account. 
@@ -89,7 +93,7 @@ After maintaining an API key, make an .env file in the root of the project and a
 
 `REACT_APP_API_KEY=PlaceYourApiKeyHere`
 
-**Step 4: Running and testing the project locally**  
+**Step 5: Running and testing the project locally**  
 To run the project locally and test all the functions, run the following command on the command line:
 
 `npm start
