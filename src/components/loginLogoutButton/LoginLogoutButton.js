@@ -10,7 +10,7 @@ function LoginLogoutButton({onClick, text}) {
             type="button"
             onClick={onClick}
         >
-            <img className="login-logout-button__icon" src={accountIcon}/>
+            <img className="login-logout-button__icon" src={accountIcon} alt="login and logout button"/>
             {text}
         </button>
     );

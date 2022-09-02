@@ -10,6 +10,7 @@ function ColorsPaintingTile({hex}) {
     return (
         <button
             aria-label={`add color ${hex}`}
+            type="button"
             className={`color-list__list-item ${colorSelected ? "color-added-to-palette" : ""}`}
             onClick={() => {
                 addHexColorFunction(hex);

@@ -8,8 +8,11 @@ function MyColorPaletteButton() {
     const {setColorPaletteOpen} = useContext(PaletteContext);
 
     return (
-        <button onClick={() => setColorPaletteOpen(true)} className="button__reusable my-color-palette__open-button">
-            <img alt="" className="my-color-palette-button__icon" src={myColorPaletteIcon}/>
+        <button
+            onClick={() => setColorPaletteOpen(true)}
+            className="button__reusable my-color-palette__open-button"
+            type="button">
+            <img alt="my color palette icon" className="my-color-palette-button__icon" src={myColorPaletteIcon}/>
             my palette
         </button>
     );

@@ -42,7 +42,9 @@ function PaintingTile({objectNumber, key}) {
                 <div className="painting-tile__image-container">
                     <img className="painting-tile-image-container__image" src={imageUrlOfPainting}
                          alt={titleOfPainting}/>
-                    <button className="painting-tile__download-image-button" title="Download image of art object"
+                    <button className="painting-tile__download-image-button"
+                            title="Download image of art object"
+                            type="button"
                             onClick={() => downloadImageOfArtObject(imageUrlOfPainting, titleOfPainting)}>
                         <img className="painting-tile__download-image" src={downloadImageIcon}
                              alt="download art object"/>
