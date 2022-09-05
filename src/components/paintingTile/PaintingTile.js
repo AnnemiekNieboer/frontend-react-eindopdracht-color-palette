@@ -8,7 +8,7 @@ import downloadImageIcon from "../../assets/icons/download-icon.png";
 import downloadImageOfArtObject from "../../helpers/downloadImageOfArtObject";
 
 //Component function for creating the result tiles. It uses the object number of the general search result, to get more detailed information about the painting such as the colors
-function PaintingTile({objectNumber, key}) {
+function PaintingTile({objectNumber}) {
     const [titleOfPainting, fetchTitleOfPainting] = useState("");
     const [artistOfPainting, fetchArtistOfPainting] = useState("");
     const [dateOfPainting, fetchDateOfPainting] = useState("");
@@ -38,7 +38,7 @@ function PaintingTile({objectNumber, key}) {
     if (colorsOfPainting.length > 0)
 
         return (
-            <article className="painting-tile" key={key}>
+            <article className="painting-tile">
                 <div className="painting-tile__image-container">
                     <img className="painting-tile-image-container__image" src={imageUrlOfPainting}
                          alt={titleOfPainting}/>

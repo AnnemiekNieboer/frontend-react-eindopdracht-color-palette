@@ -3,7 +3,7 @@ import "./ColorsPaintingTile.css";
 import {PaletteContext} from "../../context/PaletteContext";
 
 //Component for the color buttons in the Painting Tile
-function ColorsPaintingTile({hex, key}) {
+function ColorsPaintingTile({hex}) {
     const {addHexColorFunction} = useContext(PaletteContext);
     const [colorSelected, toggleColorSelected] = useState(false);
 
@@ -17,7 +17,6 @@ function ColorsPaintingTile({hex, key}) {
                 toggleColorSelected(true)
             }}
             onAnimationEnd={() => toggleColorSelected(false)}
-            key={key}
             style={{
                 backgroundColor: `${hex}`,
             }}
