@@ -17,9 +17,11 @@ function PaintingTile({objectNumber}) {
 
     const {addHexColorFunction} = useContext(PaletteContext);
 
+    const [loading, toggleLoading] = useState(false);
+
     useEffect(() => {
         async function getPaintingDetail() {
-
+            toggleLoading(true);
             try {
                 const result = await axios.get(`https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=${process.env.REACT_APP_API_KEY}`);
                 fetchTitleOfPainting(result.data.artObject.title);
@@ -30,6 +32,7 @@ function PaintingTile({objectNumber}) {
             } catch (e) {
                 console.error(e)
             }
+            toggleLoading(false)
         }
 
         getPaintingDetail();
@@ -39,6 +42,7 @@ function PaintingTile({objectNumber}) {
 
         return (
             <article className="painting-tile">
+                {loading && <span className="painting-tile__loading">Loading...</span>}
                 <div className="painting-tile__image-container">
                     <img className="painting-tile-image-container__image" src={imageUrlOfPainting}
                          alt={titleOfPainting}/>

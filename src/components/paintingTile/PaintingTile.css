@@ -84,6 +84,11 @@
     color: var(--main-font-color-dark);
 }
 
+.painting-tile__loading {
+    font-size: 1em;
+    color: var(--main-background-color-dark);
+}
+
 /*---------Media-queries----------*/
 
 @media screen and (min-width: 1200px) {

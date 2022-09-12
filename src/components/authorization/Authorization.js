@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import Button from "../button/Button";
 
 //Component for login and register
-function Authorization({onSubmitValue, header, children, underlineTextPart1, underlineLink, underlineLinkText, underlineTextPart2, buttonText, error}) {
+function Authorization({onSubmitValue, header, children, underlineTextPart1, underlineLink, underlineLinkText, underlineTextPart2, buttonText, error, loading}) {
     return (
         <div className="authorization__container">
             <h2>My Color Palette</h2>
@@ -16,7 +16,7 @@ function Authorization({onSubmitValue, header, children, underlineTextPart1, und
                     text={buttonText}
                     type="submit"
                 />
-                <div className="authorization__error">{error}</div>
+                <div className="authorization__error">{error}{loading}</div>
             </form>
         </div>
     );

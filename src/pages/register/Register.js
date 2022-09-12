@@ -10,7 +10,8 @@ import {AuthContext} from "../../context/AuthContext";
 //Page for registering a user
 function Register() {
     const {endpoint} = useContext((AuthContext));
-    const [error, toggleError] = useState(false)
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
 
     const history = useHistory();
 
@@ -24,6 +25,7 @@ function Register() {
     //Function for registering an account on the Novi educational backend
     async function makeRegisterRequest(data) {
         toggleError(false);
+        toggleLoading(true);
         try {
             await axios.post(`${endpoint}api/auth/signup`, {
                 "username": data.username,
@@ -35,6 +37,7 @@ function Register() {
             console.error(e)
             toggleError(true)
         }
+        toggleLoading(false);
     }
 
     return (
@@ -52,6 +55,7 @@ function Register() {
                     underlineLinkText="Login here"
                     buttonText="Register"
                     error={error && <span>This account already exist, please register with different credentials</span>}
+                    loading={loading && <span>Registering your account, please wait...</span>}
                 >
 
                     <label className="authorization__label" htmlFor="email">

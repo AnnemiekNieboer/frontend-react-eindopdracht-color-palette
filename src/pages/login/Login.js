@@ -11,12 +11,14 @@ import {AuthContext} from "../../context/AuthContext";
 function Login() {
     const {login, endpoint} = useContext(AuthContext);
     const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
 
     const {register, handleSubmit, formState: {errors}} = useForm({mode: "onChange"});
 
     //Function that will handle the login request
     async function makeLoginRequest(data) {
         toggleError(false);
+        toggleLoading(true);
         try {
             const response = await axios.post(`${endpoint}api/auth/signin`, {
                 "username": data.username,
@@ -27,6 +29,7 @@ function Login() {
             console.error(e)
             toggleError(true);
         }
+        toggleLoading(false);
     }
 
     return (
@@ -45,6 +48,7 @@ function Login() {
                     underlineTextPart2="your new account"
                     buttonText="login"
                     error={error && <span>Username/password invalid, try again or register a new account</span>}
+                    loading={loading && <span>Logging in to your account, please wait...</span>}
                 >
                     <label className="authorization__label" htmlFor="username">
                         Username
