@@ -43,8 +43,8 @@ function MyColorPalette() {
         <div
             className={colorPaletteOpen ? "my-color-palette-transition my-color-palette-opened" : "my-color-palette-transition my-color-palette-closed"}>
             <div className="my-color-palette__container">
-                <div onClick={() => setColorPaletteOpen(false)} className="my-color-palette__closing-button">
-                </div>
+                <button onClick={() => setColorPaletteOpen(false)} className="my-color-palette__closing-button">
+                </button>
                 <h2 className="my-color-palette__title">My Color Palette</h2>
                 <h4 className="my-color-palette__under-title">Selected colors</h4>
 
@@ -58,6 +58,7 @@ function MyColorPalette() {
                                     backgroundColor: `${hexColor}`,
                                 }}
                                 onClick={() => removeHexColorFunction(hexColor)}
+                                aria-label="click to remove color from color palette"
                             >
                                 <div aria-label="remove-item" className="color-block__remove-item-button"></div>
                             </div>
