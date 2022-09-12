@@ -15,13 +15,13 @@ function Homepage() {
     const [catalogueQuery, setCatalogueQuery] = useState("");
 
     const refSearch = useRef(null);
-    const refResults = useRef(null)
+    const refResults = useRef(null);
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const [noResults, toggleNoResults] = useState(false);
     const [noSearch, toggleNoSearch] = useState(true);
-    const [paintingsData, fetchPaintingsData] = useState([])
+    const [paintingsData, fetchPaintingsData] = useState([]);
 
     //Function that is fired when you submit the form
     function submitForm(e) {
