@@ -1,13 +1,114 @@
-body {
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* --------------- 1.2 Colors ------------------- */
+
+:root {
+  --main-focus-color: #B7AD89;
+  --main-contrast-color: #3C4C76;
+  --main-background-color-light: #F5F5F5;
+  --main-background-color-dark: #393735;
+  --main-background-color-transparent: rgba(245, 245, 245, 95%);
+  --main-font-color-light: #F5F5F5;
+  --main-font-color-dark: #393735;
+  --main-shadow-color: #0000003D;
+  --main-shadow-color-dark: #00000066;
+  --main-shadow-color-light: #7A7A7AFF;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Lora', serif;
+}
+
+h1 {
+  font-size: 1.6em;
+  font-weight: 600;
+  color: var(--main-font-color-light);
+  margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 0.7em 0;
+}
+
+h5, label {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+::placeholder {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--main-font-color-dark);
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+.outer-container__reusable {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.inner-container__reusable {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 22px 22px;
+  flex-basis: 100%;
+}
+
+.input-field__reusable {
+  height: 35px;
+  border: 1px solid var(--main-background-color-dark);
+  background-color: var(--main-background-color-light);
+  border-radius: 10px;
+  margin-top: 0.5em;
+  padding-left: 10px;
+}
+
+main {
+  color: var(--main-font-color-light);
+  background-color: var(--main-background-color-dark);
+}
+
+body {
+  background-color: var(--main-background-color-dark);
+}
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+  .inner-container__reusable {
+    flex-basis: 800px;
+    width: 800px;
+  }
+
+  .input-field__reusable {
+    width: 400px;
+  }
+
+/*  ------fonts-------*/
+
+  h1 {
+    font-size: 3.8em;
+  }
 }

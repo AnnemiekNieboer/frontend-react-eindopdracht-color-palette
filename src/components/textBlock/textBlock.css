@@ -1,0 +1,9 @@
+.text-block p {
+    margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 1200px) {
+    .text-block {
+        width: 800px;
+    }
+}

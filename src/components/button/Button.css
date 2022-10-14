@@ -1,0 +1,22 @@
+.button__reusable {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 0.85em;
+    letter-spacing: 0.08em;
+    background-color: var(--main-focus-color);
+    color: var(--main-font-color-light);
+    /*min-width: 130px;*/
+    text-align: left;
+    padding: 0 1.5em 0 1em;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    margin: 1.7em 0;
+    box-shadow: var(--main-shadow-color) 0 3px 8px;
+    transition: box-shadow 300ms;
+    cursor: pointer;
+}
+
+.button__reusable:hover{
+    box-shadow: var(--main-shadow-color-dark) 0 3px 8px;
+}

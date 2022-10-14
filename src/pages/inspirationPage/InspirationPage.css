@@ -1,0 +1,7 @@
+.header-background-image__inspiration {
+    background-image: url("../../assets/img/homepage-header-milkmaid-2500px.png");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    resize: horizontal;
+}

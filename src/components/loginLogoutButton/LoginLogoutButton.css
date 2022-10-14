@@ -1,0 +1,10 @@
+.login-logout-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-logout-button__icon {
+    width: 2.4em;
+    margin-right: 0.7em;
+}

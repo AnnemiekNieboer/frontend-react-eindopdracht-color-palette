@@ -1,0 +1,50 @@
+.authorization-container {
+    background-color: var(--main-background-color-dark);
+}
+.authorization__container {
+    height: 80vh;
+    background-color: var(--main-background-color-light);
+    margin: 0 0 2em 0;
+    border-radius: 10px;
+    color: var(--main-font-color-dark);
+    padding: 1.5em;
+}
+
+.authorization__input-field {
+    width: 100%;
+    margin: 0.5em 0 1em 0;
+}
+
+
+/*------------typography-----------*/
+.authorization__underline-header {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    margin: 1.7em 0 1.7em 0;
+}
+
+.authorization__label {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.underline-link:visited {
+    color: var(--main-font-color-dark);
+}
+
+.authorization__underline-text, .authorization__error {
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.authorization__error {
+    color: red;
+}
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+    .authorization__input-field {
+        width: 60%;
+    }
+}

@@ -1,0 +1,32 @@
+.header {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header__text-section {
+    margin-top: 36vh;
+}
+
+.header-text-section__title {
+    line-height: 1.5em;
+}
+
+.header-text-section__intro {
+    color: var(--main-font-color-light);
+    font-weight: 500;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin: 1em 0;
+}
+
+/*---------Media-queries----------*/
+
+@media screen and (min-width: 1200px) {
+    .header__text-section {
+        margin-top: 20vh;
+    }
+
+    .header-text-section__intro {
+        font-size: 1.1em;
+    }
+}
